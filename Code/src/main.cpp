@@ -24,6 +24,7 @@ void printLocalTime();
 void drawWifi();
 void drawSuccess();
 void rainbowLight();
+void drawGIF();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -291,5 +292,46 @@ void testTime(){
     delay(1000);
 }
 */
+
+/*
+    drawGIF函数实现，用来在灯矩阵上画出"GIF"字样
+    Date: 2023.6.25
+    Author: Jony
+*/
+void drawGIF(){
+    // draw "G"
+    for (int i=8;i<13;i++){
+        matrix.drawPixel(i,1,matrix.Color(255,163,177));
+    }
+    for (int j=2;j<7;j++){
+        matrix.drawPixel(8,j,matrix.Color(255,163,177));
+    }
+    for (int k=9;k<13;k++){
+        matrix.drawPixel(k,6,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(12,5,matrix.Color(255,163,177));
+    matrix.drawPixel(12,4,matrix.Color(255,163,177));
+    matrix.drawPixel(11,4,matrix.Color(255,163,177));
+    // draw "I"
+    for (int i1=14;i1<19;i1++){
+        matrix.drawPixel(i1,1,matrix.Color(255,163,177));
+    }
+    for (int j1=2;j1<6;j1++){
+        matrix.drawPixel(16,j1,matrix.Color(255,163,177));
+    }
+    for (int k1=14;k1<19;k1++){
+        matrix.drawPixel(k1,6,matrix.Color(255,163,177));
+    }
+    // draw "F"
+    for (int i2=20;i2<24;i2++){
+        matrix.drawPixel(i2,1,matrix.Color(255,163,177));
+    }
+    for (int j2=2;j2<7;j2++){
+        matrix.drawPixel(20,j2,matrix.Color(255,163,177));
+    }
+    for (int k2=21;k2<24;k2++){
+        matrix.drawPixel(k2,4,matrix.Color(255,163,177));
+    }
+}
 
 
