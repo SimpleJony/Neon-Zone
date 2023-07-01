@@ -3,7 +3,7 @@
 #include <time.h>
 #include <WiFi.h>
 #define NUM_LED 256 //定义led数量
-#define PIN_LIGHT 1 //定义WS2812模块 GPIO
+#define PIN_LIGHT 5 //定义WS2812模块 GPIO
 
 const int SCREEN_WIDTH = 32; //屏幕宽
 const int SCREEN_HEIGHT = 8; //屏幕高
