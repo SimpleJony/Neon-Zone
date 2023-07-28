@@ -323,6 +323,11 @@ void drawGIF(){
     }
 }
 
+/*
+    drawTimer函数实现，用来在灯矩阵上画出"TIMER"字样
+    Date: 2023.6.25
+    Author: Jony
+*/
 void drawTimer(){
     // Draw "T"
     for (int i=1;i<=5;i++){
