@@ -25,6 +25,7 @@ void drawWifi();
 void drawSuccess();
 void rainbowLight();
 void drawGIF();
+void drawTimer();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -322,4 +323,65 @@ void drawGIF(){
     }
 }
 
-
+void drawTimer(){
+    // Draw "T"
+    for (int i=1;i<=5;i++){
+        matrix.drawPixel(i,1,matrix.Color(255,163,177));
+    }
+    for (int j=2;j<=6;j++){
+        matrix.drawPixel(3,j,matrix.Color(255,163,177));
+    }
+    // Draw "I"
+    for (int i1=7;i1<=9;i1++){
+        matrix.drawPixel(i1,1,matrix.Color(255,163,177));
+    }
+    for (int j1=2;j1<=6;j1++){
+        matrix.drawPixel(8,j1,matrix.Color(255,163,177));
+    }
+    for (int k1=7;k1<=9;k1++){
+        matrix.drawPixel(k1,6,matrix.Color(255,163,177));
+    }
+    // draw "M"
+    for (int i2=11;i2<=12;i2++){
+        matrix.drawPixel(i2,1,matrix.Color(255,163,177));
+    }
+    for (int j2=2;j2<=6;j2++){
+        matrix.drawPixel(11,j2,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(13,2,matrix.Color(255,163,177));
+    matrix.drawPixel(14,3,matrix.Color(255,163,177));
+    matrix.drawPixel(15,2,matrix.Color(255,163,177));
+    for (int k2=16;k2<=17;k2++){
+        matrix.drawPixel(k2,1,matrix.Color(255,163,177));
+    }
+    for (int l2=2;l2<=6;l2++){
+        matrix.drawPixel(17,l2,matrix.Color(255,163,177));
+    }
+    // draw "E"
+    for (int i3=19;i3<=22;i3++){
+        matrix.drawPixel(i3,1,matrix.Color(255,163,177));
+    }
+    for (int j3=2;j3<=6;j3++){
+        matrix.drawPixel(19,j3,matrix.Color(255,163,177));
+    }
+    for (int k3=20;k3<=22;k3++){
+        matrix.drawPixel(k3,4,matrix.Color(255,163,177));
+    }
+    for (int l3=20;l3<=22;l3++){
+        matrix.drawPixel(l3,6,matrix.Color(255,163,177));
+    }
+    // Draw "R"
+    for (int i4=24;i4<=27;i4++){
+        matrix.drawPixel(i4,1,matrix.Color(255,163,177));
+    }
+    for (int j4=2;j4<=6;j4++) {
+        matrix.drawPixel(24, j4, matrix.Color(255, 163, 177));
+    }
+    for (int k4=25;k4<=27;k4++){
+        matrix.drawPixel(k4,4,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(26,5,matrix.Color(255,163,177));
+    matrix.drawPixel(27,6,matrix.Color(255,163,177));
+    matrix.drawPixel(27,2,matrix.Color(255,163,177));
+    matrix.drawPixel(27,3,matrix.Color(255,163,177));
+}
