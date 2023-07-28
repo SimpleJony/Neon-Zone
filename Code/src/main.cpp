@@ -282,18 +282,6 @@ uint32_t Wheel(byte WheelPos) {
 }
 
 /*
-void testTime(){
-    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-    time_t now = time(nullptr); // 获取当前时间的UNIX时间戳
-    struct tm* timeinfo = localtime(&now); // 将UNIX时间戳转换为本地时间结构体
-    Serial.println(timeinfo->tm_hour); // 打印小时
-    Serial.println(timeinfo->tm_min); // 打印分钟
-    Serial.println(timeinfo->tm_sec); // 打印秒数
-    delay(1000);
-}
-*/
-
-/*
     drawGIF函数实现，用来在灯矩阵上画出"GIF"字样
     Date: 2023.6.25
     Author: Jony
