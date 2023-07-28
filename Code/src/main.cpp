@@ -20,7 +20,6 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(SCREEN_WIDTH,SCREEN_HEIGHT,PIN_LI
 void showTime(int r,int g,int b);
 void connectWifi();
 void drawNumber(int x, int y, int num, int red, int green, int blue, int brightness);
-void printLocalTime();
 void drawWifi();
 void drawSuccess();
 void rainbowLight();
@@ -163,17 +162,6 @@ void drawNumber(int x, int y, int num, int red, int green, int blue, int brightn
   }
   matrix.setBrightness(brightness);
   matrix.show();
-}
-
-void printLocalTime()
-{
-    struct tm timeinfo;
-    if (!getLocalTime(&timeinfo))
-    {
-        Serial.println("Failed to obtain time");
-        return;
-    }
-    Serial.println(&timeinfo, "%F %T %A"); // 格式化输出
 }
 
 /*
