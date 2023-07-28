@@ -321,6 +321,7 @@ void drawGIF(){
     for (int k2=21;k2<24;k2++){
         matrix.drawPixel(k2,4,matrix.Color(255,163,177));
     }
+    matrix.show();
 }
 
 /*
@@ -389,4 +390,5 @@ void drawTimer(){
     matrix.drawPixel(27,6,matrix.Color(255,163,177));
     matrix.drawPixel(27,2,matrix.Color(255,163,177));
     matrix.drawPixel(27,3,matrix.Color(255,163,177));
+    matrix.show();
 }
