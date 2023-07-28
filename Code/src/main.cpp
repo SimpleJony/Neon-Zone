@@ -14,7 +14,7 @@ const int daylightOffset_sec = 0;
 const char* ssid = "Jony's K30";
 const char* pswd = "jony123456";
 
-Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(32,8,PIN_LIGHT,NEO_MATRIX_TOP + NEO_MATRIX_LEFT+NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,NEO_GRB + NEO_KHZ800); //灯矩阵定义
+Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(SCREEN_WIDTH,SCREEN_HEIGHT,PIN_LIGHT,NEO_MATRIX_TOP + NEO_MATRIX_LEFT+NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,NEO_GRB + NEO_KHZ800); //灯矩阵定义
 
 // 函数声明
 void showTime(int r,int g,int b);
