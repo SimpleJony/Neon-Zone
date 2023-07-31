@@ -29,7 +29,7 @@ uint32_t Wheel(byte WheelPos);
 
 
 void setup(){
-    Serial.begin(115200);
+    Serial.begin(9600);
     matrix.begin();
     matrix.setBrightness(Brightness);
     matrix.show();
