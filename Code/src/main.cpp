@@ -29,7 +29,6 @@ void drawGIF();
 void drawTimer();
 void getJoystickData();
 void onBoot();
-void menu();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -404,10 +403,4 @@ void onBoot(){
     delay(2000);
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
-}
-
-void menu(){
-    while (true){
-
-    }
 }
