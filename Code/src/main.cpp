@@ -4,6 +4,8 @@
 #include <WiFi.h>
 #define NUM_LED 256 //定义led数量
 #define PIN_LIGHT 5 //定义WS2812模块 GPIO
+#define adc0 6
+#define adc1 7
 
 const int SCREEN_WIDTH = 32; //屏幕宽
 const int SCREEN_HEIGHT = 8; //屏幕高
@@ -25,6 +27,7 @@ void drawSuccess();
 void rainbowLight();
 void drawGIF();
 void drawTimer();
+void getJoystickData();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -379,4 +382,15 @@ void drawTimer(){
     matrix.drawPixel(27,2,matrix.Color(255,163,177));
     matrix.drawPixel(27,3,matrix.Color(255,163,177));
     matrix.show();
+}
+
+/*
+    getJoystickData函数实现，用来稳定的获取摇杆数据
+    Date: 2023.7.31
+    Author: Jony
+*/
+void getJoystickData(){
+    int joystick_x = analogRead(adc0);
+    int joystick_y = analogRead(adc1);
+    delay(400);
 }
