@@ -15,6 +15,8 @@ const long gmtOffset_sec = 8 * 3600;
 const int daylightOffset_sec = 0;
 const char* ssid = "Jony's K30";
 const char* pswd = "jony123456";
+int joystick_x;
+int joystick_y;
 
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(SCREEN_WIDTH,SCREEN_HEIGHT,PIN_LIGHT,NEO_MATRIX_TOP + NEO_MATRIX_LEFT+NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,NEO_GRB + NEO_KHZ800); //灯矩阵定义
 
@@ -27,7 +29,6 @@ void drawSuccess();
 void rainbowLight();
 void drawGIF();
 void drawTimer();
-void getJoystickData();
 void onBoot();
 uint32_t Wheel(byte WheelPos);
 
@@ -38,6 +39,9 @@ void setup(){
 }
 
 void loop(){
+    joystick_x = analogRead(adc0);
+    joystick_y = analogRead(adc1);
+    delay(400);
     showTime(124,77,255);
 }
 
@@ -377,17 +381,6 @@ void drawTimer(){
     matrix.drawPixel(27,2,matrix.Color(255,163,177));
     matrix.drawPixel(27,3,matrix.Color(255,163,177));
     matrix.show();
-}
-
-/*
-    getJoystickData函数实现，用来稳定的获取摇杆数据
-    Date: 2023.7.31
-    Author: Jony
-*/
-void getJoystickData(){
-    int joystick_x = analogRead(adc0);
-    int joystick_y = analogRead(adc1);
-    delay(400);
 }
 
 /*
