@@ -28,18 +28,13 @@ void rainbowLight();
 void drawGIF();
 void drawTimer();
 void getJoystickData();
+void onBoot();
 uint32_t Wheel(byte WheelPos);
 
 
 void setup(){
     Serial.begin(9600);
-    matrix.begin();
-    matrix.setBrightness(Brightness);
-    matrix.show();
-    rainbowLight();
-    delay(1000);
-    connectWifi();
-    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+    onBoot();
 }
 
 void loop(){
@@ -393,4 +388,19 @@ void getJoystickData(){
     int joystick_x = analogRead(adc0);
     int joystick_y = analogRead(adc1);
     delay(400);
+}
+
+/*
+    onBoot函数实现，在开机时执行相应命令
+    Date: 2023.7.31
+    Author: Jony
+*/
+void onBoot(){
+    matrix.begin();
+    matrix.setBrightness(Brightness);
+    matrix.show();
+    rainbowLight();
+    delay(5000);
+    connectWifi();
+    configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 }
