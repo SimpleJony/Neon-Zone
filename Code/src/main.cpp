@@ -29,6 +29,7 @@ void drawGIF();
 void drawTimer();
 void getJoystickData();
 void onBoot();
+void menu();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -400,7 +401,13 @@ void onBoot(){
     matrix.setBrightness(Brightness);
     matrix.show();
     rainbowLight();
-    delay(5000);
+    delay(2000);
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+}
+
+void menu(){
+    while (true){
+
+    }
 }
