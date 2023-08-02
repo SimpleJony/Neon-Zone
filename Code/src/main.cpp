@@ -30,6 +30,7 @@ void rainbowLight();
 void drawGIF();
 void drawTimer();
 void onBoot();
+void drawGame();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -396,4 +397,47 @@ void onBoot(){
     delay(2000);
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+}
+
+void drawGame(){
+    // draw "G"
+    for (int i=3;i<=7;i++){
+        matrix.drawPixel(i,1,matrix.Color(255,163,177));
+    }
+    for (int j=2;j<=6;j++){
+        matrix.drawPixel(3,j,matrix.Color(255,163,177));
+    }
+    for (int k=4;k<=7;k++){
+        matrix.drawPixel(k,6,matrix.Color(255,163,177));
+    }
+    // draw "A"
+    matrix.drawPixel(11,1,matrix.Color(255,163,177));
+    matrix.drawPixel(10,2,matrix.Color(255,163,177));
+    matrix.drawPixel(12,2,matrix.Color(255,163,177));
+    for (int i1=3;i1<=6;i1++){
+        matrix.drawPixel(9,i1,matrix.Color(255,163,177));
+        matrix.drawPixel(13,i1,matrix.Color(255,163,177));
+    }
+    for (int j1=10;j1<=12;j1++){
+        matrix.drawPixel(j1,5,matrix.Color(255,163,177));
+    }
+    // draw "M"
+    for (int i2=1;i2<=6;i2++){
+        matrix.drawPixel(15,i2,matrix.Color(255,163,177));
+        matrix.drawPixel(21,i2,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(16,1,matrix.Color(255,163,177));
+    matrix.drawPixel(20,1,matrix.Color(255,163,177));
+    matrix.drawPixel(17,2,matrix.Color(255,163,177));
+    matrix.drawPixel(19,2,matrix.Color(255,163,177));
+    matrix.drawPixel(18,3,matrix.Color(255,163,177));
+    // draw "E"
+    for (int i3=1;i3<=6;i3++){
+        matrix.drawPixel(23,i3,matrix.Color(255,163,177));
+    }
+    for (int j3=24;j3<=27;j3++){
+        matrix.drawPixel(j3,1,matrix.Color(255,163,177));
+        matrix.drawPixel(j3,4,matrix.Color(255,163,177));
+        matrix.drawPixel(j3,6,matrix.Color(255,163,177));
+    }
 }
