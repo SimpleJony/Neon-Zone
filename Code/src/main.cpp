@@ -176,45 +176,37 @@ void drawWifi(){
     // draw "W"
     for (int i=1;i<=6;i++){
       matrix.drawPixel(3,i,matrix.Color(0,183,239));
-    }
-    for (int j=4;j<=7;j++){
-      matrix.drawPixel(j,6,matrix.Color(0,183,239));
+      matrix.drawPixel(7,i,matrix.Color(0,183,239));
     }
     for (int k=2;k<=5;k++){
-      matrix.drawPixel(5,k,matrix.Color(0,183,239));
+        matrix.drawPixel(5,k,matrix.Color(0,183,239));
     }
-    for (int l=1;l<=5;l++){
-      matrix.drawPixel(7,l,matrix.Color(0,183,239));
+    for (int j=4;j<=6;j++){
+      matrix.drawPixel(j,6,matrix.Color(0,183,239));
     }
     // draw "I"
     for (int i1=9;i1<=11;i1++){
       matrix.drawPixel(i1,1,matrix.Color(0,183,239));
+      matrix.drawPixel(i1,6,matrix.Color(0,183,239));
     }
     for (int j1=2;j1<=5;j1++){
       matrix.drawPixel(10,j1,matrix.Color(0,183,239));
     }
-    for (int k1=9;k1<=11;k1++){
-      matrix.drawPixel(k1,6,matrix.Color(0,183,239));
-    }
     // draw "F"
-    for (int i2=13;i2<=15;i2++){
+    for (int j2=1;j2<=6;j2++){
+        matrix.drawPixel(13,j2,matrix.Color(0,183,239));
+    }
+    for (int i2=14;i2<=15;i2++){
       matrix.drawPixel(i2,1,matrix.Color(0,183,239));
-    }
-    for (int j2=2;j2<=6;j2++){
-      matrix.drawPixel(13,j2,matrix.Color(0,183,239));
-    }
-    for (int k2=14;k2<=15;k2++){
-      matrix.drawPixel(k2,4,matrix.Color(0,183,239));
+      matrix.drawPixel(i2,4,matrix.Color(0,183,239));
     }
     // draw "I"
     for (int i3=17;i3<=19;i3++){
       matrix.drawPixel(i3,1,matrix.Color(0,183,239));
+      matrix.drawPixel(i3,6,matrix.Color(0,183,239));
     }
     for (int j3=2;j3<=5;j3++){
       matrix.drawPixel(18,j3,matrix.Color(0,183,239));
-    }
-    for (int k3=17;k3<=19;k3++){
-      matrix.drawPixel(k3,6,matrix.Color(0,183,239));
     }
     matrix.show();
 }
@@ -280,37 +272,31 @@ uint32_t Wheel(byte WheelPos) {
 */
 void drawGIF(){
     // draw "G"
-    for (int i=8;i<13;i++){
+    for (int i=8;i<=12;i++){
         matrix.drawPixel(i,1,matrix.Color(255,163,177));
+        matrix.drawPixel(i,6,matrix.Color(255,163,177));
     }
-    for (int j=2;j<7;j++){
+    for (int j=2;j<=5;j++){
         matrix.drawPixel(8,j,matrix.Color(255,163,177));
-    }
-    for (int k=9;k<13;k++){
-        matrix.drawPixel(k,6,matrix.Color(255,163,177));
     }
     matrix.drawPixel(12,5,matrix.Color(255,163,177));
     matrix.drawPixel(12,4,matrix.Color(255,163,177));
     matrix.drawPixel(11,4,matrix.Color(255,163,177));
     // draw "I"
-    for (int i1=14;i1<19;i1++){
+    for (int i1=14;i1<=18;i1++){
         matrix.drawPixel(i1,1,matrix.Color(255,163,177));
+        matrix.drawPixel(i1,6,matrix.Color(255,163,177));
     }
-    for (int j1=2;j1<6;j1++){
+    for (int j1=2;j1<=5;j1++){
         matrix.drawPixel(16,j1,matrix.Color(255,163,177));
     }
-    for (int k1=14;k1<19;k1++){
-        matrix.drawPixel(k1,6,matrix.Color(255,163,177));
-    }
     // draw "F"
-    for (int i2=20;i2<24;i2++){
-        matrix.drawPixel(i2,1,matrix.Color(255,163,177));
-    }
-    for (int j2=2;j2<7;j2++){
+    for (int j2=1;j2<=6;j2++){
         matrix.drawPixel(20,j2,matrix.Color(255,163,177));
     }
-    for (int k2=21;k2<24;k2++){
-        matrix.drawPixel(k2,4,matrix.Color(255,163,177));
+    for (int i2=21;i2<=23;i2++){
+        matrix.drawPixel(i2,1,matrix.Color(255,163,177));
+        matrix.drawPixel(i2,4,matrix.Color(255,163,177));
     }
     matrix.show();
 }
@@ -320,6 +306,7 @@ void drawGIF(){
     Date: 2023.6.25
     Author: Jony
 */
+// TODO: Need improve ,missing original file
 void drawTimer(){
     // Draw "T"
     for (int i=1;i<=5;i++){
