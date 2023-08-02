@@ -440,4 +440,5 @@ void drawGame(){
         matrix.drawPixel(j3,4,matrix.Color(255,163,177));
         matrix.drawPixel(j3,6,matrix.Color(255,163,177));
     }
+    matrix.show();
 }
