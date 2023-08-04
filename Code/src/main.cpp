@@ -242,7 +242,7 @@ void rainbowLight(){
         matrix.drawPixel(i,j,Wheel(k));
         matrix.show();
         k+=5;
-        delay(100);
+        delay(5);
       }
     }
 }
