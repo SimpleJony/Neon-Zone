@@ -101,6 +101,7 @@ void connectWifi(){
         }
     }
     drawSuccess();
+    delay(1000);
     Serial.println("Connected!");
     Serial.print("IP address:");
     Serial.print(WiFi.localIP());
