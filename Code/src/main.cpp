@@ -483,6 +483,7 @@ void onBoot(){
     delay(1000);
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+    matrix.clear();
 }
 
 void drawGame(){
