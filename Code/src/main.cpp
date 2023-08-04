@@ -61,20 +61,21 @@ void showTime(int r,int g,int b){
         time_t now = time(nullptr); // 获取当前时间的UNIX时间戳
         struct tm* nowtime = localtime(&now); // 将UNIX时间戳转换为本地时间结构体
         //显示小时
-        drawNumber(2,2,(nowtime->tm_hour / 10),r,g,b,Brightness);
-        drawNumber(6,2,(nowtime->tm_hour % 10),r,g,b,Brightness);
-        matrix.drawPixel(10,3,matrix.Color(r,g,b));
+        drawNumber(2,1,(nowtime->tm_hour / 10),r,g,b,Brightness);
+        drawNumber(6,1,(nowtime->tm_hour % 10),r,g,b,Brightness);
+        matrix.drawPixel(10,2,matrix.Color(r,g,b));
         matrix.drawPixel(10,5,matrix.Color(r,g,b));
         //显示分钟
-        drawNumber(13,2,(nowtime->tm_min / 10),r,g,b,Brightness);
-        drawNumber(17,2,(nowtime->tm_min % 10),r,g,b,Brightness);
-        matrix.drawPixel(21,3,matrix.Color(r,g,b));
-        matrix.drawPixel(21,5,matrix.Color(r,g,b));
+        drawNumber(12,1,(nowtime->tm_min / 10),r,g,b,Brightness);
+        drawNumber(16,1,(nowtime->tm_min % 10),r,g,b,Brightness);
+        matrix.drawPixel(20,2,matrix.Color(r,g,b));
+        matrix.drawPixel(20,5,matrix.Color(r,g,b));
         //显示秒数
-        drawNumber(24,2,(nowtime->tm_sec / 10),r,g,b,Brightness);
-        drawNumber(28,2,(nowtime->tm_sec % 10),r,g,b,Brightness);
+        drawNumber(22,1,(nowtime->tm_sec / 10),r,g,b,Brightness);
+        drawNumber(26,1,(nowtime->tm_sec % 10),r,g,b,Brightness);
         matrix.show();
         delay(500);
+        matrix.clear();
     } 
 }
 
@@ -114,55 +115,100 @@ void connectWifi(){
 */
 void drawNumber(int x, int y, int num, int red, int green, int blue, int brightness) {
   if (num == 0) {
-    for (int h = 0; h < 5; h++) {
+    for (int h = 0; h <= 5; h++) {
       matrix.drawPixel(x, y + h, matrix.Color(red, green, blue));
       matrix.drawPixel(x + 2, y + h, matrix.Color(red, green, blue));
     }
     matrix.drawPixel(x + 1, y, matrix.Color(red, green, blue));
-    matrix.drawPixel(x + 1, y + 4, matrix.Color(red, green, blue));
+    matrix.drawPixel(x + 1, y + 5, matrix.Color(red, green, blue));
   }
   else if (num == 1) {
-    for (int h = 0; h < 5; h++) {
+    for (int h = 0; h <= 5; h++) {
       matrix.drawPixel(x + 1, y + h, matrix.Color(red, green, blue));
     }
     matrix.drawPixel(x, y + 1, matrix.Color(red, green, blue));
+    matrix.drawPixel(x, y + 5, matrix.Color(red, green, blue));
+    matrix.drawPixel(x + 2, y + 5, matrix.Color(red, green, blue));
+  }
+  else if (num==2){
+      for (int h=0;h<=2;h++){
+          matrix.drawPixel(x+h, y,matrix.Color(red, green, blue));
+          matrix.drawPixel(x+h, y+2,matrix.Color(red, green, blue));
+          matrix.drawPixel(x+h, y+5,matrix.Color(red, green, blue));
+      }
+      matrix.drawPixel(x+2, y+1,matrix.Color(red, green, blue));
+      matrix.drawPixel(x, y+3,matrix.Color(red, green, blue));
+      matrix.drawPixel(x, y+4,matrix.Color(red, green, blue));
+  }
+  else if (num == 3){
+      for (int h=0;h<=2;h++){
+          matrix.drawPixel(x+h, y,matrix.Color(red, green, blue));
+          matrix.drawPixel(x+h, y+2,matrix.Color(red, green, blue));
+          matrix.drawPixel(x+h, y+5,matrix.Color(red, green, blue));
+      }
+      matrix.drawPixel(x+2, y+1,matrix.Color(red, green, blue));
+      matrix.drawPixel(x+2, y+3,matrix.Color(red, green, blue));
+      matrix.drawPixel(x+2, y+4,matrix.Color(red, green, blue));
+  }
+  else if (num == 4){
+      for (int h=0;h<=3;h++){
+          matrix.drawPixel(x, y+h,matrix.Color(red, green, blue));
+      }
+      for (int i=0;i<=5;i++){
+          matrix.drawPixel(x+2, y+i,matrix.Color(red, green, blue));
+      }
+      matrix.drawPixel(x+1, y+3,matrix.Color(red, green, blue));
+  }
+  else if (num == 5) {
+    for (int w = 0; w <= 2; w++) {
+      matrix.drawPixel(x + w, y, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 3, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 5, matrix.Color(red, green, blue));
+    }
+      matrix.drawPixel(x, y + 1, matrix.Color(red, green, blue));
+      matrix.drawPixel(x, y + 2, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + 2, y + 4, matrix.Color(red, green, blue));
+  }
+  else if (num == 6) {
+    for (int w = 0; w <= 2; w++) {
+      matrix.drawPixel(x + w, y, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 3, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 5, matrix.Color(red, green, blue));
+    }
+    matrix.drawPixel(x, y + 1, matrix.Color(red, green, blue));
+    matrix.drawPixel(x, y + 2, matrix.Color(red, green, blue));
     matrix.drawPixel(x, y + 4, matrix.Color(red, green, blue));
     matrix.drawPixel(x + 2, y + 4, matrix.Color(red, green, blue));
   }
-  else if (num == 2) {
-    for (int w = 0; w < 3; w++) {
-      matrix.drawPixel(x + 2, y + w, matrix.Color(red, green, blue));
-    }
-    for (int h = 0; h < 3; h++) {
-      matrix.drawPixel(x, y + h, matrix.Color(red, green, blue));
-    }
-    matrix.drawPixel(x + 1, y + 2, matrix.Color(red, green, blue));
+  else if (num == 7){
+      for (int h=0;h<=2;h++){
+          matrix.drawPixel(x + h, y, matrix.Color(red, green, blue));
+      }
+      for (int i=0;i<=5;i++){
+          matrix.drawPixel(x + 2, y + i, matrix.Color(red, green, blue));
+      }
   }
-  else if (num == 5) {
-    for (int w = 0; w < 3; w++) {
-      matrix.drawPixel(x + w, y, matrix.Color(red, green, blue));
-      matrix.drawPixel(x + w, y + 2, matrix.Color(red, green, blue));
-      matrix.drawPixel(x + w, y + 4, matrix.Color(red, green, blue));
-    }
-    matrix.drawPixel(x, y + 1, matrix.Color(red, green, blue));
-    matrix.drawPixel(x + 2, y + 3, matrix.Color(red, green, blue));
-  }
-  else if (num == 6) {
-    for (int w = 0; w < 3; w++) {
-      matrix.drawPixel(x + w, y, matrix.Color(red, green, blue));
-      matrix.drawPixel(x + w, y + 2, matrix.Color(red, green, blue));
-    }
-    matrix.drawPixel(x + 1, y + 4, matrix.Color(red, green, blue));
+  else if (num == 8){
+      for (int h = 0; h <= 5; h++) {
+          matrix.drawPixel(x, y + h, matrix.Color(red, green, blue));
+          matrix.drawPixel(x + 2, y + h, matrix.Color(red, green, blue));
+      }
+      matrix.drawPixel(x + 1, y, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + 1, y + 5, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + 1, y + 3, matrix.Color(red, green, blue));
   }
   else if (num == 9) {
-    for (int w = 0; w < 3; w++) {
+    for (int w = 0; w <= 2; w++) {
       matrix.drawPixel(x + w, y, matrix.Color(red, green, blue));
-      matrix.drawPixel(x + w, y + 2, matrix.Color(red, green, blue));
-      matrix.drawPixel(x + w, y + 4, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 3, matrix.Color(red, green, blue));
+      matrix.drawPixel(x + w, y + 5, matrix.Color(red, green, blue));
     }
     matrix.drawPixel(x, y + 1, matrix.Color(red, green, blue));
+    matrix.drawPixel(x, y + 2, matrix.Color(red, green, blue));
     matrix.drawPixel(x + 2, y + 1, matrix.Color(red, green, blue));
-    matrix.drawPixel(x + 2, y + 3, matrix.Color(red, green, blue));
+    matrix.drawPixel(x + 2, y + 2, matrix.Color(red, green, blue));
+    matrix.drawPixel(x + 2, y + 4, matrix.Color(red, green, blue));
+
   }
   matrix.setBrightness(brightness);
   matrix.show();
@@ -433,6 +479,8 @@ void onBoot(){
     matrix.show();
     rainbowLight();
     delay(2000);
+    matrix.clear();
+    delay(1000);
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 }
