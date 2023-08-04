@@ -74,7 +74,7 @@ void showTime(int r,int g,int b){
         drawNumber(22,1,(nowtime->tm_sec / 10),r,g,b,Brightness);
         drawNumber(26,1,(nowtime->tm_sec % 10),r,g,b,Brightness);
         matrix.show();
-        delay(500);
+        delay(1000);
         matrix.clear();
     } 
 }
