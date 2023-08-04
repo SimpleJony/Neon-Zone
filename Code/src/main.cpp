@@ -9,7 +9,7 @@
 
 const int SCREEN_WIDTH = 32; //屏幕宽
 const int SCREEN_HEIGHT = 8; //屏幕高
-const int Brightness = 200; //亮度设置
+const int Brightness = 130; //亮度设置
 const char *ntpServer = "ntp.aliyun.com";
 const long gmtOffset_sec = 8 * 3600;
 const int daylightOffset_sec = 0;
