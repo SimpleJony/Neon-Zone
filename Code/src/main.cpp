@@ -32,6 +32,7 @@ void drawTime();
 void drawTimer();
 void onBoot();
 void drawGame();
+void menu();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -41,10 +42,8 @@ void setup(){
 }
 
 void loop(){
-    joystick_x = analogRead(adc0);
-    joystick_y = analogRead(adc1);
-    delay(400);
-    showTime(124,77,255);
+    //showTime(124,77,255);
+    menu();
 }
 
 /*
@@ -530,3 +529,46 @@ void drawGame(){
     matrix.show();
 }
 
+void menu(){
+    int menu_index = 0;
+    while (true){
+        joystick_x = analogRead(adc0);
+        joystick_y = analogRead(adc1);
+        if (joystick_x == 0 && joystick_y != 0){
+            if (menu_index == 0){
+                menu_index = 3;
+            }
+            else {
+                menu_index -= 1;
+            }
+        }
+        if (joystick_x == 8191 && joystick_y != 0){
+            if (menu_index == 3){
+                menu_index = 0;
+            }
+            else {
+                menu_index += 1;
+            }
+        }
+        if (menu_index == 0){
+            matrix.clear();
+            drawTime();
+            delay(500);
+        }
+        if (menu_index == 1){
+            matrix.clear();
+            drawTimer();
+            delay(500);
+        }
+        if (menu_index == 2){
+            matrix.clear();
+            drawGIF();
+            delay(500);
+        }
+        if (menu_index == 3){
+            matrix.clear();
+            drawGame();
+            delay(500);
+        }
+    }
+}
