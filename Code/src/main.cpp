@@ -2,6 +2,9 @@
 #include <Adafruit_NeoMatrix.h>
 #include <time.h>
 #include <WiFi.h>
+#include <vector>
+#include <tuple>
+
 #define NUM_LED 256 //定义led数量
 #define PIN_LIGHT 5 //定义WS2812模块 GPIO
 #define adc0 6
@@ -50,6 +53,8 @@ void drawGame();
 void menu();
 void snakeGame();
 void drawScore();
+std::tuple<int, int, int, uint32_t> createRainDrop();
+void codeRain();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -61,7 +66,8 @@ void setup(){
 void loop(){
     //showTime(124,77,255);
     //menu();
-    snakeGame();
+    //snakeGame();
+    codeRain();
 }
 
 /*
@@ -747,4 +753,46 @@ void drawScore(){
     matrix.drawPixel(21,2,matrix.Color(255,163,177));
     matrix.drawPixel(21,5,matrix.Color(255,163,177));
     matrix.show();
+}
+
+std::tuple<int, int, int, uint32_t> createRainDrop() {
+    int x = random(0, SCREEN_WIDTH - 1);
+    int speed = random(1, 3);
+
+    int r = random(0, 255);
+    int g = random(0, 255);
+    int b = random(0, 255);
+    uint32_t color = matrix.Color(r, g, b);
+    return std::make_tuple(x, 0, speed, color);
+}
+
+void codeRain() {
+    matrix.fillScreen(0);
+    matrix.show();
+
+    std::vector<std::tuple<int, int, int, uint32_t>> raindrops;
+
+    while (true) {
+        matrix.fillScreen(0);
+        if (raindrops.size() < 10) {
+            raindrops.push_back(createRainDrop());
+        }
+
+        for (int i = 0; i < raindrops.size(); i++) {
+            int x, y, speed;
+            uint32_t color;
+            std::tie(x, y, speed, color) = raindrops[i];
+            matrix.drawPixel(x, y, color);
+            y += 1;
+            // 边界处理
+            if (y >= SCREEN_HEIGHT) {
+                raindrops[i] = createRainDrop();
+            } else {
+                raindrops[i] = std::make_tuple(x, y, speed, color);
+            }
+
+            delay(5);
+        }
+        matrix.show();
+    }
 }
