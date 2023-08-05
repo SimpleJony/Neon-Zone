@@ -13,8 +13,8 @@ const int Brightness = 130; //亮度设置
 const char *ntpServer = "ntp.aliyun.com";
 const long gmtOffset_sec = 8 * 3600;
 const int daylightOffset_sec = 0;
-const char* ssid = "Jony's K30";
-const char* pswd = "jony123456";
+const char* ssid = "TP-LINK_6312甜馨2";
+const char* pswd = "12345678";
 int joystick_x;
 int joystick_y;
 struct Snake {
@@ -49,6 +49,7 @@ void onBoot();
 void drawGame();
 void menu();
 void snakeGame();
+void drawScore();
 uint32_t Wheel(byte WheelPos);
 
 
@@ -59,7 +60,8 @@ void setup(){
 
 void loop(){
     //showTime(124,77,255);
-    menu();
+    //menu();
+    snakeGame();
 }
 
 /*
@@ -598,7 +600,7 @@ void snakeGame() {
     Food food;
 
     int snake_length = 3;
-    int snake_speed = 200;
+    int snake_speed = 100;
     int snake_x = 0;
     int snake_y = 0;
     int snake_r = 255;
@@ -640,17 +642,41 @@ void snakeGame() {
         else if (direction == "down") snake_y++;
 
         if (snake_x < 0 || snake_x >= SCREEN_WIDTH || snake_y < 0 || snake_y >= SCREEN_HEIGHT) {
-            matrix.fillScreen(matrix.Color(255, 0, 0));
+            matrix.clear();
+            matrix.fillScreen(matrix.Color(255,0,0));
             matrix.show();
             delay(1000);
+            matrix.clear();
+            drawScore();
+            delay(1000);
+            if (snake_length-3 > 9){
+                drawNumber(23,1,(snake_length-3)/10,255,163,177,50);
+                drawNumber(28,1,(snake_length-3)%10,255,163,177,50);
+            }
+            else {
+                drawNumber(23,1,snake_length-3,255,163,177,50);
+            }
+            delay(3000);
             break;
         }
 
         for (int i = 1; i < snake_length; i++) {
             if (snake[i].x == snake_x && snake[i].y == snake_y) {
-                matrix.fillScreen(matrix.Color(255, 0, 0));
+                matrix.clear();
+                matrix.fillScreen(matrix.Color(255,0,0));
                 matrix.show();
                 delay(1000);
+                matrix.clear();
+                drawScore();
+                delay(1000);
+                if (snake_length-3 > 9){
+                    drawNumber(23,1,(snake_length-3)/10,255,163,177,50);
+                    drawNumber(28,1,(snake_length-3)%10,255,163,177,50);
+                }
+                else {
+                    drawNumber(23,1,snake_length-3,255,163,177,50);
+                }
+                delay(3000);
                 break;
             }
         }
@@ -676,4 +702,49 @@ void snakeGame() {
         matrix.show();
         delay(snake_speed);
     }
+}
+
+void drawScore(){
+    for (int i=1;i<=4;i++){
+        matrix.drawPixel(i,1,matrix.Color(255,163,177));
+        matrix.drawPixel(i,3,matrix.Color(255,163,177));
+        matrix.drawPixel(i,6,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(1,2,matrix.Color(255,163,177));
+    matrix.drawPixel(4,4,matrix.Color(255,163,177));
+    matrix.drawPixel(4,5,matrix.Color(255,163,177));
+
+    for (int j=6;j<=9;j++){
+        matrix.drawPixel(j,1,matrix.Color(255,163,177));
+        matrix.drawPixel(j,6,matrix.Color(255,163,177));
+    }
+    for (int k=2;k<=5;k++){
+        matrix.drawPixel(6,k,matrix.Color(255,163,177));
+    }
+
+    for (int a=1;a<=6;a++){
+        matrix.drawPixel(11,a,matrix.Color(255,163,177));
+        matrix.drawPixel(14,a,matrix.Color(255,163,177));
+    }
+    for (int b=12;b<=13;b++){
+        matrix.drawPixel(b,1,matrix.Color(255,163,177));
+        matrix.drawPixel(b,6,matrix.Color(255,163,177));
+    }
+
+    for (int c=16;c<=19;c++){
+        matrix.drawPixel(c,1,matrix.Color(255,163,177));
+        matrix.drawPixel(c,4,matrix.Color(255,163,177));
+    }
+    for (int d=2;d<=3;d++){
+        matrix.drawPixel(16,d,matrix.Color(255,163,177));
+        matrix.drawPixel(19,d,matrix.Color(255,163,177));
+    }
+    matrix.drawPixel(16,5,matrix.Color(255,163,177));
+    matrix.drawPixel(16,6,matrix.Color(255,163,177));
+    matrix.drawPixel(18,5,matrix.Color(255,163,177));
+    matrix.drawPixel(19,6,matrix.Color(255,163,177));
+
+    matrix.drawPixel(21,2,matrix.Color(255,163,177));
+    matrix.drawPixel(21,5,matrix.Color(255,163,177));
+    matrix.show();
 }
