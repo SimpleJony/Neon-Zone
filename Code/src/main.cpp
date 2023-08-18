@@ -73,11 +73,6 @@ void onBoot(){
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     weatherNow.config(UserKey,location_code);
-    if (!weatherNow.get()){
-        Serial.println("Failed to get weather data");
-        Serial.print("Error Code:");
-        Serial.println(weatherNow.getServerCode());
-    }
     matrix.clear();
 }
 
