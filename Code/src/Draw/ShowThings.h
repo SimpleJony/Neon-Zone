@@ -14,7 +14,7 @@
 const char *ntpServer = "ntp.aliyun.com";
 const long gmtOffset_sec = 8 * 3600;
 const int daylightOffset_sec = 0;
-const int Brightness = 130; //亮度设置
+const int Brightness = 80; //亮度设置
 String UserKey = "3c446a5a055846a08e479b2ec283b110";
 String location_code = "101260307";
 WeatherNow weatherNow; //天气定义
