@@ -17,7 +17,6 @@ const int daylightOffset_sec = 0;
 const int Brightness = 130; //亮度设置
 String UserKey = "3c446a5a055846a08e479b2ec283b110";
 String location_code = "101260307";
-double time_round = 5;
 WeatherNow weatherNow; //天气定义
 
 void showTime(int r,int g,int b);
