@@ -6,9 +6,8 @@
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
 #include "Game/Game.h"
+#include "config.h"
 
-const char* ssid = "TP-LINK_6312甜馨2";
-const char* pswd = "12345678";
 // 函数声明
 void connectWifi();
 void onBoot();
@@ -24,7 +23,10 @@ void loop(){
     //menu();
     //snakeGame();
     //codeRain();
-    showWeather();
+    //showWeather();
+    adjustBrightness();
+    drawProgressBar();
+    delay(200);
 }
 
 /*

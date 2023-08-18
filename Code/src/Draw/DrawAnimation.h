@@ -6,6 +6,7 @@
 #define CODE_DRAWANIMATION_H
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
+#include "config.h"
 #include <vector>
 #include <tuple>
 

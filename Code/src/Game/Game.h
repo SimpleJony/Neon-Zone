@@ -4,10 +4,11 @@
 
 #ifndef CODE_GAME_H
 #define CODE_GAME_H
-#define adc0 6
-#define adc1 7
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
+#include "config.h"
+#include "Draw/DrawThings.h"
+
 
 struct Snake {
     int x;
@@ -24,7 +25,6 @@ struct Food {
     int g;
     int b;
 };
-int joystick_x,joystick_y;
 
 void snakeGame() {
     joystick_x = 0;

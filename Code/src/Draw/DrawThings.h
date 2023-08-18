@@ -4,13 +4,9 @@
 
 #ifndef CODE_DRAWTHINGS_H
 #define CODE_DRAWTHINGS_H
-#define PIN_LIGHT 5 //定义WS2812模块 GPIO
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
-
-const int SCREEN_WIDTH = 32; //屏幕宽
-const int SCREEN_HEIGHT = 8; //屏幕高
-Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(SCREEN_WIDTH,SCREEN_HEIGHT,PIN_LIGHT,NEO_MATRIX_TOP + NEO_MATRIX_LEFT+NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,NEO_GRB + NEO_KHZ800); //灯矩阵定义
+#include "config.h"
 
 void drawNumber(int x, int y, int num, int red, int green, int blue, int brightness);
 void drawWifi();
@@ -25,6 +21,8 @@ void drawCloud();
 void drawRain();
 void drawSnow();
 void drawUnknown();
+void drawProgressBar();
+void adjustBrightness();
 
 /*
     DrawNumber函数实现，用来在屏幕上显示数字
@@ -523,6 +521,34 @@ void drawUnknown() {
     matrix.drawPixel(5, 4, matrix.Color(0, 0, 0));
     matrix.drawPixel(5, 6, matrix.Color(0, 0, 0));
     matrix.show();
+}
+
+void drawProgressBar(){
+    matrix.clear();
+    int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);
+    for (int i = 1; i < progressBarLength; i++) {
+        matrix.drawLine(i, 3, i, 3, matrix.Color(255,255,255));
+        matrix.drawLine(i, 4, i, 4, matrix.Color(255,255,255));
+        matrix.drawLine(i, 5, i, 5, matrix.Color(255,255,255));
+    }
+    matrix.show();
+    matrix.setBrightness(Brightness);
+}
+
+void adjustBrightness() {
+    joystick_x = analogRead(adc0);
+    joystick_y = analogRead(adc1);
+    if (joystick_x == 8191 && joystick_y != 0) {
+        Brightness += 10;
+    } else if (joystick_x == 0 && joystick_y != 0) {
+        Brightness -= 10;
+    }
+
+    if (Brightness < 0) {
+        Brightness = 0;
+    } else if (Brightness > 255) {
+        Brightness = 255;
+    }
 }
 
 #endif //CODE_DRAWTHINGS_H
