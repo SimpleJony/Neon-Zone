@@ -439,27 +439,19 @@ void drawScore(){
 
 void drawSunny(){
     for (int i=4;i<=6;i++){
-        matrix.drawPixel(i,3,matrix.Color(255,242,0));
-        matrix.drawPixel(i,5,matrix.Color(255,242,0));
+        matrix.drawPixel(i,2,matrix.Color(255,242,0));
+        matrix.drawPixel(i,4,matrix.Color(255,242,0));
     }
-    matrix.drawPixel(4,4,matrix.Color(255,242,0));
-    matrix.drawPixel(6,4,matrix.Color(255,242,0));
-    matrix.drawPixel(3,2,matrix.Color(255,242,0));
-    matrix.drawPixel(2,1,matrix.Color(255,242,0));
-    matrix.drawPixel(7,2,matrix.Color(255,242,0));
-    matrix.drawPixel(8,1,matrix.Color(255,242,0));
-    matrix.drawPixel(1,4,matrix.Color(255,242,0));
-    matrix.drawPixel(2,4,matrix.Color(255,242,0));
-    matrix.drawPixel(8,4,matrix.Color(255,242,0));
-    matrix.drawPixel(9,4,matrix.Color(255,242,0));
-    matrix.drawPixel(3,6,matrix.Color(255,242,0));
-    matrix.drawPixel(2,7,matrix.Color(255,242,0));
-    matrix.drawPixel(7,6,matrix.Color(255,242,0));
-    matrix.drawPixel(8,7,matrix.Color(255,242,0));
-    matrix.drawPixel(5,1,matrix.Color(255,242,0));
-    matrix.drawPixel(5,2,matrix.Color(255,242,0));
+    matrix.drawPixel(4,3,matrix.Color(255,242,0));
+    matrix.drawPixel(6,3,matrix.Color(255,242,0));
+    matrix.drawPixel(5,0,matrix.Color(255,242,0));
+    matrix.drawPixel(3,1,matrix.Color(255,242,0));
+    matrix.drawPixel(7,1,matrix.Color(255,242,0));
+    matrix.drawPixel(2,3,matrix.Color(255,242,0));
+    matrix.drawPixel(8,3,matrix.Color(255,242,0));
+    matrix.drawPixel(3,5,matrix.Color(255,242,0));
+    matrix.drawPixel(7,5,matrix.Color(255,242,0));
     matrix.drawPixel(5,6,matrix.Color(255,242,0));
-    matrix.drawPixel(5,7,matrix.Color(255,242,0));
     matrix.show();
 }
 
@@ -467,59 +459,81 @@ void drawCloud(){
     for (int i=1;i<=8;i++){
         matrix.drawPixel(i,5,matrix.Color(118,215,234));
     }
-    matrix.drawPixel(1,4,matrix.Color(118,215,234));
-    matrix.drawPixel(8,4,matrix.Color(118,215,234));
     matrix.drawPixel(2,3,matrix.Color(118,215,234));
-    matrix.drawPixel(7,3,matrix.Color(118,215,234));
+    matrix.drawPixel(4,2,matrix.Color(118,215,234));
     matrix.drawPixel(3,2,matrix.Color(118,215,234));
-    matrix.drawPixel(6,2,matrix.Color(118,215,234));
-    matrix.drawPixel(4,1,matrix.Color(118,215,234));
     matrix.drawPixel(5,1,matrix.Color(118,215,234));
+    matrix.drawPixel(6,1,matrix.Color(118,215,234));
+    matrix.drawPixel(7,2,matrix.Color(118,215,234));
+    matrix.drawPixel(7,3,matrix.Color(118,215,234));
     matrix.show();
 }
 
 void drawRain(){
-    matrix.drawPixel(1,4,matrix.Color(127,127,127));
-    matrix.drawPixel(8,4,matrix.Color(127,127,127));
     matrix.drawPixel(2,3,matrix.Color(127,127,127));
-    matrix.drawPixel(7,3,matrix.Color(127,127,127));
+    matrix.drawPixel(3,3,matrix.Color(127,127,127));
+    matrix.drawPixel(4,3,matrix.Color(127,127,127));
+    matrix.drawPixel(8,3,matrix.Color(127,127,127));
     matrix.drawPixel(3,2,matrix.Color(127,127,127));
     matrix.drawPixel(6,2,matrix.Color(127,127,127));
+    matrix.drawPixel(7,2,matrix.Color(127,127,127));
     matrix.drawPixel(4,1,matrix.Color(127,127,127));
     matrix.drawPixel(5,1,matrix.Color(127,127,127));
-    for (int i=4;i<=6;i++){
-        matrix.drawPixel(3,i,matrix.Color(127,127,127));
-        matrix.drawPixel(6,i,matrix.Color(127,127,127));
-    }
+    matrix.drawPixel(6,1,matrix.Color(127,127,127));
+    matrix.drawPixel(7,4,matrix.Color(127,127,127));
+    matrix.drawPixel(7,5,matrix.Color(127,127,127));
+    matrix.drawPixel(7,6,matrix.Color(127,127,127));
+    matrix.drawPixel(5,4,matrix.Color(127,127,127));
+    matrix.drawPixel(5,5,matrix.Color(127,127,127));
+    matrix.drawPixel(3,5,matrix.Color(127,127,127));
+    matrix.drawPixel(3,6,matrix.Color(127,127,127));
     matrix.show();
 }
 
 void drawSnow(){
-    for (int i=2;i<=6;i++){
-        matrix.drawPixel(5,i,matrix.Color(255,255,255));
-    }
-    matrix.drawPixel(3,2,matrix.Color(255,255,255));
+    matrix.drawPixel(2,3,matrix.Color(255,255,255));
+    matrix.drawPixel(3,3,matrix.Color(255,255,255));
     matrix.drawPixel(4,3,matrix.Color(255,255,255));
+    matrix.drawPixel(5,3,matrix.Color(255,255,255));
+    matrix.drawPixel(8,3,matrix.Color(255,255,255));
+    matrix.drawPixel(9,3,matrix.Color(255,255,255));
+    matrix.drawPixel(3,2,matrix.Color(255,255,255));
     matrix.drawPixel(7,2,matrix.Color(255,255,255));
-    matrix.drawPixel(6,3,matrix.Color(255,255,255));
-    matrix.drawPixel(4,5,matrix.Color(255,255,255));
-    matrix.drawPixel(3,6,matrix.Color(255,255,255));
-    matrix.drawPixel(6,5,matrix.Color(255,255,255));
-    matrix.drawPixel(7,6,matrix.Color(255,255,255));
+    matrix.drawPixel(8,2,matrix.Color(255,255,255));
+    matrix.drawPixel(4,1,matrix.Color(255,255,255));
+    matrix.drawPixel(5,1,matrix.Color(255,255,255));
+    matrix.drawPixel(6,1,matrix.Color(255,255,255));
+    matrix.drawPixel(7,1,matrix.Color(255,255,255));
+    matrix.drawPixel(6,4,matrix.Color(255,255,255));
+    matrix.drawPixel(3,5,matrix.Color(255,255,255));
+    matrix.drawPixel(5,5,matrix.Color(255,255,255));
+    matrix.drawPixel(7,5,matrix.Color(255,255,255));
+    matrix.drawPixel(2,6,matrix.Color(255,255,255));
+    matrix.drawPixel(4,6,matrix.Color(255,255,255));
+    matrix.drawPixel(6,6,matrix.Color(255,255,255));
+    matrix.drawPixel(8,6,matrix.Color(255,255,255));
     matrix.show();
 }
 
 void drawUnknown() {
-    for (int i = 4; i <= 7; i++) {
-        matrix.drawPixel(i, 1, matrix.Color(0, 0, 0));
-    }
-    matrix.drawPixel(3, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(7, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(5, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(6, 3, matrix.Color(0, 0, 0));
+    matrix.drawPixel(2, 2, matrix.Color(0, 0, 0));
+    matrix.drawPixel(2, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(3, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(4, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(4, 2, matrix.Color(0, 0, 0));
+    matrix.drawPixel(4, 3, matrix.Color(0, 0, 0));
+    matrix.drawPixel(3, 3, matrix.Color(0, 0, 0));
+    matrix.drawPixel(3, 4, matrix.Color(0, 0, 0));
+    matrix.drawPixel(3, 6, matrix.Color(0, 0, 0));
+    matrix.drawPixel(6, 2, matrix.Color(0, 0, 0));
+    matrix.drawPixel(6, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(7, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(8, 1, matrix.Color(0, 0, 0));
+    matrix.drawPixel(8, 2, matrix.Color(0, 0, 0));
+    matrix.drawPixel(8, 3, matrix.Color(0, 0, 0));
     matrix.drawPixel(7, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(5, 4, matrix.Color(0, 0, 0));
-    matrix.drawPixel(5, 6, matrix.Color(0, 0, 0));
+    matrix.drawPixel(7, 4, matrix.Color(0, 0, 0));
+    matrix.drawPixel(7, 6, matrix.Color(0, 0, 0));
     matrix.show();
 }
 
