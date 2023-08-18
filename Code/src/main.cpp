@@ -73,6 +73,7 @@ void onBoot(){
     connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     weatherNow.config(UserKey,location_code);
+    weatherNow.get();
     matrix.clear();
 }
 
