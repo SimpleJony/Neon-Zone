@@ -1,0 +1,3 @@
+[submodule "Code/lib/ArduinoUZlib"]
+	path = Code/lib/ArduinoUZlib
+	url = https://github.com/tignioj/ArduinoUZlib
