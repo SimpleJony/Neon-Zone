@@ -1,3 +1,15 @@
 [submodule "Code/lib/ArduinoUZlib"]
 	path = Code/lib/ArduinoUZlib
 	url = https://github.com/tignioj/ArduinoUZlib
+[submodule "Code/lib/Adafruit-GFX-Library"]
+	path = Code/lib/Adafruit-GFX-Library
+	url = https://github.com/adafruit/Adafruit-GFX-Library
+[submodule "Code/lib/Adafruit_BusIO"]
+	path = Code/lib/Adafruit_BusIO
+	url = https://github.com/adafruit/Adafruit_BusIO
+[submodule "Code/lib/Adafruit_NeoMatrix"]
+	path = Code/lib/Adafruit_NeoMatrix
+	url = https://github.com/adafruit/Adafruit_NeoMatrix
+[submodule "Code/lib/WiFiManager"]
+	path = Code/lib/WiFiManager
+	url = https://github.com/tzapu/WiFiManager
