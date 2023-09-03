@@ -13,3 +13,6 @@
 [submodule "Code/lib/WiFiManager"]
 	path = Code/lib/WiFiManager
 	url = https://github.com/tzapu/WiFiManager
+[submodule "Code/lib/blinker"]
+	path = Code/lib/blinker
+	url = https://github.com/blinker-iot/blinker-library

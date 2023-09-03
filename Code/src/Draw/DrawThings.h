@@ -554,9 +554,9 @@ void drawProgressBar(){
 void adjustBrightness() {
     joystick_x = analogRead(adc0);
     joystick_y = analogRead(adc1);
-    if (joystick_x == 8191 && joystick_y != 0) {
+    if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 255) {
         Brightness += 10;
-    } else if (joystick_x == 0 && joystick_y != 0) {
+    } else if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 0) {
         Brightness -= 10;
     }
 

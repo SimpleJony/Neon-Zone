@@ -1,11 +1,16 @@
+#define BLINKER_PRINT Serial
+#define BLINKER_WIFI
+#define BLINKER_ESP_TASK
+#define BLINKER_MIOT_LIGHT
 #include <Arduino.h>
-#include <Adafruit_NeoMatrix.h>
-#include <time.h>
 #include <WiFi.h>
+#include <Blinker.h>
+#undef ARDUINOJSON_DEFINE_PROGMEM_ARRAY
 #include "Draw/DrawThings.h"
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
 #include "Game/Game.h"
+#include "BlinkerControl/XiaoAiControl.h"
 #include "config.h"
 
 // 函数声明
@@ -20,12 +25,10 @@ void setup(){
 
 void loop(){
     //showTime(124,77,255);
-    //menu();
+    menu();
     //snakeGame();
     //codeRain();
     //showWeather();
-    adjustBrightness();
-    drawProgressBar();
     delay(200);
 }
 
@@ -65,6 +68,11 @@ void connectWifi(){
     Author: Jony
 */
 void onBoot(){
+    #if defined(BLINKER_PRINT)
+    BLINKER_DEBUG.stream(BLINKER_PRINT);
+    #endif
+    Blinker.begin(auth,ssid,pswd);
+    Blinker_callback();
     matrix.begin();
     matrix.setBrightness(Brightness);
     matrix.show();
@@ -77,6 +85,7 @@ void onBoot(){
     weatherNow.config(UserKey,location_code);
     weatherNow.get();
     matrix.clear();
+    BLINKER_TAST_INIT();
 }
 
 // TODO: Optimize code. (Code unfinished)
@@ -85,7 +94,7 @@ void menu(){
     while (true){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        if (joystick_x == 0 && joystick_y != 0){
+        if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 0){
             if (menu_index == 0){
                 menu_index = 3;
             }
@@ -93,7 +102,7 @@ void menu(){
                 menu_index -= 1;
             }
         }
-        if (joystick_x == 8191 && joystick_y != 0){
+        if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 255){
             if (menu_index == 3){
                 menu_index = 0;
             }
