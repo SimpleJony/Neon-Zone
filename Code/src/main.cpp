@@ -9,14 +9,13 @@
 #include "Draw/DrawThings.h"
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
-#include "Game/Game.h"
+#include "Draw/ShowMenu.h"
 #include "BlinkerControl/XiaoAiControl.h"
-#include "config.h"
+#include "Tools/config.h"
 
 // 函数声明
 void connectWifi();
 void onBoot();
-void menu();
 
 void setup(){
     Serial.begin(9600);
@@ -24,8 +23,7 @@ void setup(){
 }
 
 void loop(){
-    //showTime(124,77,255);
-    menu();
+    ShowMenu();
     //snakeGame();
     //codeRain();
     //showWeather();
@@ -72,6 +70,7 @@ void onBoot(){
     BLINKER_DEBUG.stream(BLINKER_PRINT);
     #endif
     Blinker.begin(auth,ssid,pswd);
+    BLINKER_TAST_INIT();
     Blinker_callback();
     matrix.begin();
     matrix.setBrightness(Brightness);
@@ -85,53 +84,4 @@ void onBoot(){
     weatherNow.config(UserKey,location_code);
     weatherNow.get();
     matrix.clear();
-    BLINKER_TAST_INIT();
 }
-
-// TODO: Optimize code. (Code unfinished)
-void menu(){
-    int menu_index = 0;
-    while (true){
-        joystick_x = analogRead(adc0);
-        joystick_y = analogRead(adc1);
-        if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 0){
-            if (menu_index == 0){
-                menu_index = 3;
-            }
-            else {
-                menu_index -= 1;
-            }
-        }
-        if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 255){
-            if (menu_index == 3){
-                menu_index = 0;
-            }
-            else {
-                menu_index += 1;
-            }
-        }
-        if (menu_index == 0){
-            matrix.clear();
-            drawTime();
-            delay(500);
-        }
-        if (menu_index == 1){
-            matrix.clear();
-            drawTimer();
-            delay(500);
-        }
-        if (menu_index == 2){
-            matrix.clear();
-            drawGIF();
-            delay(500);
-        }
-        if (menu_index == 3){
-            matrix.clear();
-            drawGame();
-            delay(500);
-        }
-    }
-}
-
-
-
