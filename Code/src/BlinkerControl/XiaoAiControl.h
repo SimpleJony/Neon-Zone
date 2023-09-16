@@ -46,7 +46,6 @@ void buttonExit_callback(const String &state)
     BLINKER_LOG("Now state: ", now_state);
 }
 
-
 void Blinker_callback(){
     Controller.attach(joystickController_callback);
     ButtonConfirm.attach(buttonConfirm_callback);

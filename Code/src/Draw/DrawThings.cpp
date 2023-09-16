@@ -276,54 +276,43 @@ void drawTimer(){
     matrix.drawPixel(27,3,matrix.Color(255,163,177));
     matrix.show();
 }
-// TODO: This function comes from drawTimer(),need improve
+
 void drawTime() {
     // Draw "T"
-    for (int i = 1; i <= 5; i++) {
+    for (int i=3;i<=7;i++){
         matrix.drawPixel(i, 1, matrix.Color(255, 163, 177));
     }
-    for (int j = 2; j <= 6; j++) {
-        matrix.drawPixel(3, j, matrix.Color(255, 163, 177));
+    for (int j=2;j<=6;j++){
+        matrix.drawPixel(5, j, matrix.Color(255, 163, 177));
     }
     // Draw "I"
-    for (int i1 = 7; i1 <= 9; i1++) {
-        matrix.drawPixel(i1, 1, matrix.Color(255, 163, 177));
+    for (int i=10;i<=12;i++){
+        matrix.drawPixel(i, 1, matrix.Color(255, 163, 177));
+        matrix.drawPixel(i, 6, matrix.Color(255, 163, 177));
     }
-    for (int j1 = 2; j1 <= 6; j1++) {
-        matrix.drawPixel(8, j1, matrix.Color(255, 163, 177));
+    for (int j=2;j<=5;j++){
+        matrix.drawPixel(11, j, matrix.Color(255, 163, 177));
     }
-    for (int k1 = 7; k1 <= 9; k1++) {
-        matrix.drawPixel(k1, 6, matrix.Color(255, 163, 177));
+    // Draw "M"
+    for (int i=1;i<=6;i++){
+        matrix.drawPixel(15, i, matrix.Color(255, 163, 177));
+        matrix.drawPixel(21 , i, matrix.Color(255, 163, 177));
     }
-    // draw "M"
-    for (int i2 = 11; i2 <= 12; i2++) {
-        matrix.drawPixel(i2, 1, matrix.Color(255, 163, 177));
+    matrix.drawPixel(16, 1, matrix.Color(255, 163, 177));
+    matrix.drawPixel(20, 1, matrix.Color(255, 163, 177));
+    matrix.drawPixel(17, 2, matrix.Color(255, 163, 177));
+    matrix.drawPixel(19, 2, matrix.Color(255, 163, 177));
+    matrix.drawPixel(18, 3, matrix.Color(255, 163, 177));
+    // Draw "E"
+    for (int i=24;i<=27;i++){
+        matrix.drawPixel(i, 1, matrix.Color(255, 163, 177));
+        matrix.drawPixel(i, 3, matrix.Color(255, 163, 177));
+        matrix.drawPixel(i, 6, matrix.Color(255, 163, 177));
     }
-    for (int j2 = 2; j2 <= 6; j2++) {
-        matrix.drawPixel(11, j2, matrix.Color(255, 163, 177));
-    }
-    matrix.drawPixel(13, 2, matrix.Color(255, 163, 177));
-    matrix.drawPixel(14, 3, matrix.Color(255, 163, 177));
-    matrix.drawPixel(15, 2, matrix.Color(255, 163, 177));
-    for (int k2 = 16; k2 <= 17; k2++) {
-        matrix.drawPixel(k2, 1, matrix.Color(255, 163, 177));
-    }
-    for (int l2 = 2; l2 <= 6; l2++) {
-        matrix.drawPixel(17, l2, matrix.Color(255, 163, 177));
-    }
-    // draw "E"
-    for (int i3 = 19; i3 <= 22; i3++) {
-        matrix.drawPixel(i3, 1, matrix.Color(255, 163, 177));
-    }
-    for (int j3 = 2; j3 <= 6; j3++) {
-        matrix.drawPixel(19, j3, matrix.Color(255, 163, 177));
-    }
-    for (int k3 = 20; k3 <= 22; k3++) {
-        matrix.drawPixel(k3, 4, matrix.Color(255, 163, 177));
-    }
-    for (int l3 = 20; l3 <= 22; l3++) {
-        matrix.drawPixel(l3, 6, matrix.Color(255, 163, 177));
-    }
+    matrix.drawPixel(24, 2, matrix.Color(255, 163, 177));
+    matrix.drawPixel(24, 4, matrix.Color(255, 163, 177));
+    matrix.drawPixel(24, 5, matrix.Color(255, 163, 177));
+
     matrix.show();
 }
 
