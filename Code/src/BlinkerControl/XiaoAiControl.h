@@ -15,6 +15,7 @@ BlinkerButton ButtonExit("btn-exit");
 
 //函数创建
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis);
+void miotBright(const String & bright);
 void Blinker_callback();
 void checkNetwork();
 
@@ -50,6 +51,18 @@ void Blinker_callback(){
     Controller.attach(joystickController_callback);
     ButtonConfirm.attach(buttonConfirm_callback);
     ButtonExit.attach(buttonExit_callback);
+    BlinkerMIOT.attachBrightness(miotBright);
+}
+
+void miotBright(const String & bright)
+{
+    BLINKER_LOG("need set brightness: ", bright);
+    uint8_t colorW = bright.toInt();
+    Brightness = colorW*15/10+105;
+    BLINKER_LOG("now set brightness: ", colorW);
+    matrix.setBrightness(Brightness);
+    BlinkerMIOT.brightness(colorW);
+    BlinkerMIOT.print();
 }
 
 void checkNetwork(){
