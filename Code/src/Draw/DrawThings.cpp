@@ -327,6 +327,9 @@ void drawGame(){
     for (int k=4;k<=7;k++){
         matrix.drawPixel(k,6,matrix.Color(255,163,177));
     }
+    matrix.drawPixel(6,4,matrix.Color(255,163,177));
+    matrix.drawPixel(7,4,matrix.Color(255,163,177));
+    matrix.drawPixel(7,5,matrix.Color(255,163,177));
     // draw "A"
     matrix.drawPixel(11,1,matrix.Color(255,163,177));
     matrix.drawPixel(10,2,matrix.Color(255,163,177));
