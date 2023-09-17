@@ -7,7 +7,7 @@ void ShowMenu(){
     while (true){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 0){
+        if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (menu_index == 1){
                 menu_index = 5;
             }
@@ -15,7 +15,7 @@ void ShowMenu(){
                 menu_index -= 1;
             }
         }
-        if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 255){
+        if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
             if (menu_index == 5){
                 menu_index = 1;
             }

@@ -65,10 +65,10 @@ void snakeGame() {
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
 
-        if ((joystick_x != 0 && joystick_y == 0 && direction != "down") || (BlinkerY == 0 && direction != "down")) direction = "up";
-        else if ((joystick_x != 0 && joystick_y == 8191 && direction != "up") || (BlinkerY == 255 && direction != "up")) direction = "down";
-        else if ((joystick_x == 0 && joystick_y != 0 && direction != "right") || (BlinkerX == 255 && direction != "right")) direction = "left";
-        else if ((joystick_x == 8191 && joystick_y != 0 && direction != "left") || (BlinkerX == 0 && direction != "left")) direction = "right";
+        if ((joystick_x != 0 && joystick_y == 0 && direction != "down") || ((BlinkerY >= 0 && BlinkerY <=5) && direction != "down")) direction = "up";
+        else if ((joystick_x != 0 && joystick_y == 8191 && direction != "up") || ((BlinkerY >= 250 && BlinkerY <=255) && direction != "up")) direction = "down";
+        else if ((joystick_x == 0 && joystick_y != 0 && direction != "right") || ((BlinkerX >= 250 && BlinkerX <=255) && direction != "right")) direction = "left";
+        else if ((joystick_x == 8191 && joystick_y != 0 && direction != "left") || ((BlinkerX >= 0 && BlinkerX <=5) && direction != "left")) direction = "right";
 
         if (direction == "right") snake_x++;
         else if (direction == "left") snake_x--;

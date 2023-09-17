@@ -39,7 +39,7 @@ void Timer(){
             timer_index++;
         }
 
-        if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 255){
+        if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
             if (timer_index == 1){
                 if (timer_hour+1 > 99){
                     timer_hour = 0;
@@ -74,7 +74,7 @@ void Timer(){
                 }
             }
         }
-        else if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 0){
+        else if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (timer_index == 1){
                 if (timer_hour-1 < 0){
                     timer_hour = 99;
