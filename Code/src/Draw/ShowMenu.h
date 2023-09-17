@@ -11,6 +11,7 @@
 #include "Draw/DrawAnimation.h"
 #include "Game/Game.h"
 #include "Tools/config.h"
+#include "Tools/Timer.h"
 
 void ShowMenu();
 
