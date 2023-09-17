@@ -9,14 +9,14 @@ void ShowMenu(){
         joystick_y = analogRead(adc1);
         if ((joystick_x == 0 && joystick_y != 0) || BlinkerX == 0){
             if (menu_index == 1){
-                menu_index = 4;
+                menu_index = 5;
             }
             else {
                 menu_index -= 1;
             }
         }
         if ((joystick_x == 8191 && joystick_y != 0) || BlinkerX == 255){
-            if (menu_index == 4){
+            if (menu_index == 5){
                 menu_index = 1;
             }
             else {
@@ -28,19 +28,24 @@ void ShowMenu(){
             drawTime();
             delay(500);
         }
-        if (menu_index == 2){ //TODO: show weather temp,will write timer later
+        if (menu_index == 2){
             matrix.clear();
             drawTimer();
             delay(500);
         }
         if (menu_index == 3){
             matrix.clear();
-            drawGIF();
+            drawWeather();
             delay(500);
         }
         if (menu_index == 4){
             matrix.clear();
             drawGame();
+            delay(500);
+        }
+        if (menu_index == 5){
+            matrix.clear();
+            drawGIF();
             delay(500);
         }
 
@@ -54,21 +59,27 @@ void ShowMenu(){
             }
             else if (menu_index == 2) {
                 matrix.clear();
-                now_state = "weather";
+                now_state = "timer";
                 delay(300);
-                showWeather();
+                Timer();
             }
             else if (menu_index == 3) {
                 matrix.clear();
-                now_state = "gif";
+                now_state = "weather";
                 delay(300);
-                codeRain();
+                showWeather();
             }
             else if (menu_index == 4){
                 matrix.clear();
                 now_state = "snakegame";
                 delay(300);
                 snakeGame();
+            }
+            else if (menu_index == 5) {
+                matrix.clear();
+                now_state = "gif";
+                delay(300);
+                codeRain();
             }
         }
     }

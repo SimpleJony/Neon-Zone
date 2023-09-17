@@ -510,6 +510,22 @@ void drawUnknown() {
     matrix.show();
 }
 
+void drawWeather(){ //TODO:Temporary use drawCloud(),will redesign later.
+    for (int i=1;i<=8;i++){
+        matrix.drawPixel(i,5,matrix.Color(118,215,234));
+    }
+    matrix.drawPixel(1,4,matrix.Color(118,215,234));
+    matrix.drawPixel(8,4,matrix.Color(118,215,234));
+    matrix.drawPixel(2,3,matrix.Color(118,215,234));
+    matrix.drawPixel(4,2,matrix.Color(118,215,234));
+    matrix.drawPixel(3,2,matrix.Color(118,215,234));
+    matrix.drawPixel(5,1,matrix.Color(118,215,234));
+    matrix.drawPixel(6,1,matrix.Color(118,215,234));
+    matrix.drawPixel(7,2,matrix.Color(118,215,234));
+    matrix.drawPixel(7,3,matrix.Color(118,215,234));
+    matrix.show();
+}
+
 void drawProgressBar(){
     matrix.clear();
     int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);
