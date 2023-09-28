@@ -12,6 +12,7 @@ bool result;
 BlinkerJoystick Controller("Controller");
 BlinkerButton ButtonConfirm("btn-confirm");
 BlinkerButton ButtonExit("btn-exit");
+BlinkerSlider BrightnessControl("Brightness-Control");
 
 //函数创建
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis);
@@ -46,10 +47,18 @@ void buttonExit_callback(const String &state)
     BLINKER_LOG("Now state: ", now_state);
 }
 
+void BrightnessControl_callback(int32_t brightness_blinker)
+{
+    Brightness = brightness_blinker;
+    matrix.setBrightness(Brightness);
+    BLINKER_LOG("get brightness value: ", brightness_blinker);
+}
+
 void Blinker_callback(){
     Controller.attach(joystickController_callback);
     ButtonConfirm.attach(buttonConfirm_callback);
     ButtonExit.attach(buttonExit_callback);
+    BrightnessControl.attach(BrightnessControl_callback);
     BlinkerMIOT.attachBrightness(miotBright);
 }
 
