@@ -12,7 +12,7 @@ void Timer(){
     int b = 255;
     int timer_index = 1;
 
-    while (true){
+    while (now_state == "timer"){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();

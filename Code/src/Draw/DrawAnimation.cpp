@@ -56,7 +56,7 @@ void codeRain() {
 
     std::vector<std::tuple<int, int, int, uint32_t>> raindrops;
 
-    while (true) {
+    while (now_state == "gif") {
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();

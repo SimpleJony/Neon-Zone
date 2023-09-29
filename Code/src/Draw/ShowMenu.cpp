@@ -4,7 +4,7 @@
 #include "ShowMenu.h"
 
 void ShowMenu(){
-    while (true){
+    while (now_state == "menu"){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){

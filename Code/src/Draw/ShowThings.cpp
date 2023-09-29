@@ -12,7 +12,7 @@ WeatherNow weatherNow;
 void showTime(int r,int g,int b){
     matrix.clear();
     delay(500);
-    while (true) {
+    while (now_state == "time") {
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
@@ -80,7 +80,7 @@ void showWeather(){
             break;
     }
     matrix.show();
-    while (true){
+    while (now_state == "weather"){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();

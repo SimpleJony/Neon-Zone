@@ -54,7 +54,7 @@ void snakeGame() {
     snake[0].g = snake_g;
     snake[0].b = snake_b;
 
-    while (true) {
+    while (now_state == "snakegame") {
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
