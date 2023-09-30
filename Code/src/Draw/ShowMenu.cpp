@@ -15,6 +15,7 @@ void ShowMenu(){
                 menu_index -= 1;
             }
         }
+
         if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
             if (menu_index == 5){
                 menu_index = 1;
@@ -23,6 +24,7 @@ void ShowMenu(){
                 menu_index += 1;
             }
         }
+
         if (menu_index == 1){
             matrix.clear();
             drawTime();
@@ -49,37 +51,48 @@ void ShowMenu(){
             delay(500);
         }
 
+        if (now_state == "time"){
+            matrix.clear();
+            showTime(124,77,255);
+        }
+        else if (now_state == "timer"){
+            matrix.clear();
+            Timer();
+        }
+        else if (now_state == "weather"){
+            matrix.clear();
+            showWeather();
+        }
+        else if (now_state == "snakegame"){
+            matrix.clear();
+            snakeGame();
+        }
+        else if (now_state == "gif"){
+            matrix.clear();
+            codeRain();
+        }
+
         if (BlinkerButtonState_confirm=="tap"){
             BlinkerButtonState_confirm = "null";
             if (menu_index == 1){
                 matrix.clear();
                 now_state = "time";
-                delay(300);
-                showTime(124,77,255);
             }
             else if (menu_index == 2) {
                 matrix.clear();
                 now_state = "timer";
-                delay(300);
-                Timer();
             }
             else if (menu_index == 3) {
                 matrix.clear();
                 now_state = "weather";
-                delay(300);
-                showWeather();
             }
             else if (menu_index == 4){
                 matrix.clear();
                 now_state = "snakegame";
-                delay(300);
-                snakeGame();
             }
             else if (menu_index == 5) {
                 matrix.clear();
                 now_state = "gif";
-                delay(300);
-                codeRain();
             }
         }
     }

@@ -19,6 +19,7 @@ void joystickController_callback(uint8_t xAxis, uint8_t yAxis);
 void miotBright(const String & bright);
 void Blinker_callback();
 void checkNetwork();
+void miotMode(uint8_t setMode);
 
 //数据回调函数
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis)
@@ -60,6 +61,7 @@ void Blinker_callback(){
     ButtonExit.attach(buttonExit_callback);
     BrightnessControl.attach(BrightnessControl_callback);
     BlinkerMIOT.attachBrightness(miotBright);
+    BlinkerMIOT.attachMode(miotMode);
 }
 
 void miotBright(const String & bright)
@@ -70,6 +72,37 @@ void miotBright(const String & bright)
     BLINKER_LOG("now set brightness: ", colorW);
     matrix.setBrightness(Brightness);
     BlinkerMIOT.brightness(colorW);
+    BlinkerMIOT.print();
+}
+
+void miotMode(uint8_t setMode)
+{
+    BLINKER_LOG("need set mode: ", setMode);
+
+    if (setMode == BLINKER_CMD_MIOT_DAY) {
+        now_state = "time";
+    }
+    else if (setMode == BLINKER_CMD_MIOT_NIGHT) {
+        now_state = "timer";
+    }
+    else if (setMode == BLINKER_CMD_MIOT_COLOR) {
+        now_state = "weather";
+    }
+    else if (setMode == BLINKER_CMD_MIOT_WARMTH) {
+        now_state = "snakegame";
+    }
+    else if (setMode == BLINKER_CMD_MIOT_TV) {
+        now_state = "gif";
+    }
+    else if (setMode == BLINKER_CMD_MIOT_READING) {
+        now_state = "menu";
+        return;
+    }
+//    else if (setMode == BLINKER_CMD_MIOT_COMPUTER) {
+//        // Your setMode function
+//    }
+
+    BlinkerMIOT.mode(setMode);
     BlinkerMIOT.print();
 }
 
