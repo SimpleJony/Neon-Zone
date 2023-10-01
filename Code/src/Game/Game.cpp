@@ -3,21 +3,41 @@
 //
 #include "Game.h"
 
-struct Snake {
-    int x;
-    int y;
-    int r;
-    int g;
-    int b;
-};
+void resetGame(Snake snake[], Food &food, int &snake_length, int &snake_speed, int &snake_x, int &snake_y, int &snake_r, int &snake_g, int &snake_b, String &direction) {
+    joystick_x = 0;
+    joystick_y = 0;
 
-struct Food {
-    int x;
-    int y;
-    int r;
-    int g;
-    int b;
-};
+    snake_length = 3;
+    snake_speed = 100;
+    snake_x = 0;
+    snake_y = 0;
+    snake_r = 255;
+    snake_g = 0;
+    snake_b = 0;
+    direction = "right";
+
+    matrix.begin();
+    matrix.setTextWrap(false);
+    matrix.setBrightness(50);
+    matrix.fillScreen(matrix.Color(0, 0, 0));
+    matrix.show();
+
+    randomSeed(analogRead(0));
+    food.x = random(SCREEN_WIDTH);
+    food.y = random(SCREEN_HEIGHT);
+    food.r = 255;
+    food.g = 255;
+    food.b = 255;
+
+    for (int i = 0; i < snake_length; i++) {
+        snake[i].x = snake_x - i;
+        snake[i].y = snake_y;
+        snake[i].r = snake_r;
+        snake[i].g = snake_g;
+        snake[i].b = snake_b;
+    }
+}
+
 
 void snakeGame() {
     joystick_x = 0;
@@ -48,12 +68,13 @@ void snakeGame() {
     food.g = 255;
     food.b = 255;
 
-    snake[0].x = snake_x;
-    snake[0].y = snake_y;
-    snake[0].r = snake_r;
-    snake[0].g = snake_g;
-    snake[0].b = snake_b;
-
+    for (int i = 0; i < snake_length; i++) {
+        snake[i].x = snake_x - i;
+        snake[i].y = snake_y;
+        snake[i].r = snake_r;
+        snake[i].g = snake_g;
+        snake[i].b = snake_b;
+    }
     while (now_state == "snakegame") {
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
@@ -91,7 +112,7 @@ void snakeGame() {
                 drawNumber(23,1,snake_length-3,255,163,177,50);
             }
             delay(3000);
-            break;
+            resetGame(snake, food, snake_length, snake_speed, snake_x, snake_y, snake_r, snake_g, snake_b, direction);
         }
 
         for (int i = 1; i < snake_length; i++) {
@@ -111,7 +132,7 @@ void snakeGame() {
                     drawNumber(23,1,snake_length-3,255,163,177,50);
                 }
                 delay(3000);
-                break;
+                resetGame(snake, food, snake_length, snake_speed, snake_x, snake_y, snake_r, snake_g, snake_b, direction);
             }
         }
 

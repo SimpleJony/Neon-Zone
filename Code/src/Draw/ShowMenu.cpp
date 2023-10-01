@@ -51,27 +51,6 @@ void ShowMenu(){
             delay(500);
         }
 
-        if (now_state == "time"){
-            matrix.clear();
-            showTime(124,77,255);
-        }
-        else if (now_state == "timer"){
-            matrix.clear();
-            Timer();
-        }
-        else if (now_state == "weather"){
-            matrix.clear();
-            showWeather();
-        }
-        else if (now_state == "snakegame"){
-            matrix.clear();
-            snakeGame();
-        }
-        else if (now_state == "gif"){
-            matrix.clear();
-            codeRain();
-        }
-
         if (BlinkerButtonState_confirm=="tap"){
             BlinkerButtonState_confirm = "null";
             if (menu_index == 1){
@@ -94,6 +73,27 @@ void ShowMenu(){
                 matrix.clear();
                 now_state = "gif";
             }
+        }
+
+        if (now_state == "time"){
+            matrix.clear();
+            showTime(124,77,255);
+        }
+        else if (now_state == "timer"){
+            matrix.clear();
+            Timer();
+        }
+        else if (now_state == "weather"){
+            matrix.clear();
+            showWeather();
+        }
+        else if (now_state == "snakegame"){
+            matrix.clear();
+            snakeGame();
+        }
+        else if (now_state == "gif"){
+            matrix.clear();
+            codeRain();
         }
     }
 }
