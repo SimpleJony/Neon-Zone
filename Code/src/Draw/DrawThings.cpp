@@ -421,24 +421,24 @@ void drawSnow(){
 }
 
 void drawUnknown() {
-    matrix.drawPixel(2, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(2, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(3, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(4, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(4, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(4, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(3, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(3, 4, matrix.Color(0, 0, 0));
-    matrix.drawPixel(3, 6, matrix.Color(0, 0, 0));
-    matrix.drawPixel(6, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(6, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(7, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(8, 1, matrix.Color(0, 0, 0));
-    matrix.drawPixel(8, 2, matrix.Color(0, 0, 0));
-    matrix.drawPixel(8, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(7, 3, matrix.Color(0, 0, 0));
-    matrix.drawPixel(7, 4, matrix.Color(0, 0, 0));
-    matrix.drawPixel(7, 6, matrix.Color(0, 0, 0));
+    matrix.drawPixel(2, 2, matrix.Color(255,255,255));
+    matrix.drawPixel(2, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(3, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(4, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(4, 2, matrix.Color(255,255,255));
+    matrix.drawPixel(4, 3, matrix.Color(255,255,255));
+    matrix.drawPixel(3, 3, matrix.Color(255,255,255));
+    matrix.drawPixel(3, 4, matrix.Color(255,255,255));
+    matrix.drawPixel(3, 6, matrix.Color(255,255,255));
+    matrix.drawPixel(6, 2, matrix.Color(255,255,255));
+    matrix.drawPixel(6, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(7, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(8, 1, matrix.Color(255,255,255));
+    matrix.drawPixel(8, 2, matrix.Color(255,255,255));
+    matrix.drawPixel(8, 3, matrix.Color(255,255,255));
+    matrix.drawPixel(7, 3, matrix.Color(255,255,255));
+    matrix.drawPixel(7, 4, matrix.Color(255,255,255));
+    matrix.drawPixel(7, 6, matrix.Color(255,255,255));
     matrix.show();
 }
 
