@@ -98,9 +98,6 @@ void miotMode(uint8_t setMode)
         now_state = "menu";
         return;
     }
-//    else if (setMode == BLINKER_CMD_MIOT_COMPUTER) {
-//        // Your setMode function
-//    }
 
     BlinkerMIOT.mode(setMode);
     BlinkerMIOT.print();

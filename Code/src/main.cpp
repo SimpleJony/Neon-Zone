@@ -5,7 +5,6 @@
 #include <Arduino.h>
 #include <Blinker.h>
 #undef ARDUINOJSON_DEFINE_PROGMEM_ARRAY
-#include "Draw/DrawThings.h"
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
 #include "Draw/ShowMenu.h"
@@ -22,9 +21,6 @@ void setup(){
 
 void loop(){
     ShowMenu();
-    //snakeGame();
-    //codeRain();
-    //showWeather();
     delay(200);
 }
 
@@ -47,7 +43,6 @@ void onBoot(){
     delay(2000);
     matrix.clear();
     delay(1000);
-    //connectWifi();
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     weatherNow.config(UserKey,location_code);
     weatherNow.get();
