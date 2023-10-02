@@ -24,3 +24,4 @@ String BlinkerButtonState_confirm;
 String BlinkerButtonState_exit;
 String now_state = "menu";
 int menu_index = 1;
+int info_index = 1;

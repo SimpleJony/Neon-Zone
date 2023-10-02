@@ -14,5 +14,6 @@
 #include "Tools/Timer.h"
 
 void ShowMenu();
+void ShowInfo();
 
 #endif //CODE_SHOWMENU_H

@@ -22,6 +22,7 @@ void drawRain();
 void drawSnow();
 void drawUnknown();
 void drawWeather();
+void drawInfo();
 void drawProgressBar();
 void adjustBrightness();
 

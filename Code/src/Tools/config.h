@@ -22,6 +22,7 @@ extern String BlinkerButtonState_confirm;
 extern String BlinkerButtonState_exit;
 extern String now_state;
 extern int menu_index;
+extern int info_index;
 
 extern const char* ssid;
 extern const char* pswd;
