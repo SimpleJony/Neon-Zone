@@ -75,7 +75,7 @@ void showWeather(){
         case 400:case 401:case 402:case 403:case 404:case 405:case 406:case 407:case 408:case 409:case 410:case 456:case 457:case 499:
             drawSnow();
             break;
-        case 999:
+        default:
             drawUnknown();
             break;
     }
