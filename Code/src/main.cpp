@@ -4,6 +4,7 @@
 #define BLINKER_MIOT_LIGHT
 #include <Arduino.h>
 #include <Blinker.h>
+#include <WiFi.h>
 #undef ARDUINOJSON_DEFINE_PROGMEM_ARRAY
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
@@ -42,6 +43,12 @@ void onBoot(){
     rainbowLight();
     delay(2000);
     matrix.clear();
+    delay(1000);
+    drawWifi();
+    delay(1000);
+    if (WiFi.status() == WL_CONNECTED){
+        drawSuccess();
+    }
     delay(1000);
     configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
     weatherNow.config(UserKey,location_code);
