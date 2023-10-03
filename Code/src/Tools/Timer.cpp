@@ -41,7 +41,7 @@ void Timer(){
             timer_index++;
         }
 
-        if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <= 255)) {
+        if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <= 255)) {
             if (timer_index == 1) {
                 timer_hour++;
                 if (timer_hour > 99) {
@@ -64,7 +64,7 @@ void Timer(){
                 delay(500);
                 matrix.clear();
             }
-        } else if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <= 5)) {
+        } else if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <= 5)) {
             if (timer_index == 1) {
                 timer_hour--;
                 if (timer_hour < 0) {
