@@ -18,8 +18,8 @@ void Timer(){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
-            now_state = "menu";
-            ShowMenu();
+            now_state = "info";
+            ShowInfo();
         }
         //显示小时
         drawNumber(2,1,timer_hour / 10,r,g,b,Brightness);

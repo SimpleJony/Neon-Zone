@@ -16,8 +16,8 @@ void showTime(int r,int g,int b){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
-            now_state = "menu";
-            ShowMenu();
+            now_state = "info";
+            ShowInfo();
         }
         //获取时间
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
@@ -84,8 +84,8 @@ void showWeather(){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
-            now_state = "menu";
-            ShowMenu();
+            now_state = "info";
+            ShowInfo();
         }
     }
 
