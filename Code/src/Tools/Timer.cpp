@@ -13,6 +13,8 @@ void Timer(){
     int timer_index = 1;
 
     while (now_state == "timer"){
+        joystick_x = analogRead(adc0);
+        joystick_y = analogRead(adc1);
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
