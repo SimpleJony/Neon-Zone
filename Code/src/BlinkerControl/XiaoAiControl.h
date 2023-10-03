@@ -80,12 +80,18 @@ void miotMode(uint8_t setMode)
     BLINKER_LOG("need set mode: ", setMode);
 
     if (setMode == BLINKER_CMD_MIOT_DAY) {
+        now_state = "info";
+        Blinker.delay(1000);
         now_state = "time";
     }
     else if (setMode == BLINKER_CMD_MIOT_NIGHT) {
+        now_state = "info";
+        Blinker.delay(1000);
         now_state = "timer";
     }
     else if (setMode == BLINKER_CMD_MIOT_COLOR) {
+        now_state = "info";
+        Blinker.delay(1000);
         now_state = "weather";
     }
     else if (setMode == BLINKER_CMD_MIOT_WARMTH) {
