@@ -95,7 +95,7 @@ void Timer(){
     }
     auto start_time = millis();
 
-    while (true){
+    while (now_state == "timer"){
         if (BlinkerButtonState_exit == "tap"){
             BlinkerButtonState_exit = "null";
             matrix.clear();
@@ -133,7 +133,7 @@ void Timer(){
 
         if (timer_second == 0 && timer_minute == 0 && timer_hour == 0){
             matrix.clear();
-            while (true){
+            while (now_state == "timer"){
                 if (BlinkerButtonState_exit == "tap"){
                     BlinkerButtonState_exit = "null";
                     matrix.clear();
