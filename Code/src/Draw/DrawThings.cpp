@@ -494,6 +494,32 @@ void drawInfo(){
     matrix.show();
 }
 
+void drawSet(){
+    for (int i=8;i<=11;i++){
+        matrix.drawPixel(i,1,matrix.Color(118,215,234));
+        matrix.drawPixel(i,4,matrix.Color(118,215,234));
+        matrix.drawPixel(i,6,matrix.Color(118,215,234));
+    }
+    matrix.drawPixel(8,2,matrix.Color(118,215,234));
+    matrix.drawPixel(8,3,matrix.Color(118,215,234));
+    matrix.drawPixel(11,5,matrix.Color(118,215,234));
+    for (int i=14;i<=17;i++){
+        matrix.drawPixel(i,1,matrix.Color(118,215,234));
+        matrix.drawPixel(i,4,matrix.Color(118,215,234));
+        matrix.drawPixel(i,6,matrix.Color(118,215,234));
+    }
+    matrix.drawPixel(14,2,matrix.Color(118,215,234));
+    matrix.drawPixel(14,3,matrix.Color(118,215,234));
+    matrix.drawPixel(14,5,matrix.Color(118,215,234));
+    for (int i=19;i<=23;i++){
+        matrix.drawPixel(i,1,matrix.Color(118,215,234));
+    }
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(21,i,matrix.Color(118,215,234));
+    }
+    matrix.show();
+}
+
 void drawProgressBar(){
     matrix.clear();
     int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);
@@ -507,8 +533,6 @@ void drawProgressBar(){
 }
 
 void adjustBrightness() {
-    joystick_x = analogRead(adc0);
-    joystick_y = analogRead(adc1);
     if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)) {
         Brightness += 10;
     } else if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)) {
@@ -520,4 +544,6 @@ void adjustBrightness() {
     } else if (Brightness > 255) {
         Brightness = 255;
     }
+
+    delay(500);
 }

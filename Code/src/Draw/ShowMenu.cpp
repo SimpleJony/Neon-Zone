@@ -9,7 +9,7 @@ void ShowMenu(){
         joystick_y = analogRead(adc1);
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (menu_index == 1){
-                menu_index = 3;
+                menu_index = 4;
             }
             else {
                 menu_index -= 1;
@@ -17,7 +17,7 @@ void ShowMenu(){
         }
 
         if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
-            if (menu_index == 3){
+            if (menu_index == 4){
                 menu_index = 1;
             }
             else {
@@ -40,6 +40,11 @@ void ShowMenu(){
             drawGIF();
             delay(500);
         }
+        if (menu_index == 4){
+            matrix.clear();
+            drawSet();
+            delay(500);
+        }
 
         if (BlinkerButtonState_confirm=="tap"){
             BlinkerButtonState_confirm = "null";
@@ -55,6 +60,10 @@ void ShowMenu(){
                 matrix.clear();
                 now_state = "gif";
             }
+            else if (menu_index == 4){
+                matrix.clear();
+                now_state = "setting";
+            }
         }
 
         if (now_state == "info"){
@@ -68,6 +77,10 @@ void ShowMenu(){
         else if (now_state == "gif"){
             matrix.clear();
             codeRain();
+        }
+        else if (now_state == "setting"){
+            matrix.clear();
+            ShowSet();
         }
     }
 }
@@ -145,5 +158,19 @@ void ShowInfo(){
             showWeather();
         }
     }
+}
 
+void ShowSet(){
+    while (now_state == "setting"){
+        joystick_x = analogRead(adc0);
+        joystick_y = analogRead(adc1);
+        if (BlinkerButtonState_exit == "tap"){
+            BlinkerButtonState_exit = "null";
+            matrix.clear();
+            now_state = "menu";
+            ShowMenu();
+        }
+        drawProgressBar();
+        adjustBrightness();
+    }
 }

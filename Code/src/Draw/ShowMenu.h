@@ -15,5 +15,6 @@
 
 void ShowMenu();
 void ShowInfo();
+void ShowSet();
 
 #endif //CODE_SHOWMENU_H
