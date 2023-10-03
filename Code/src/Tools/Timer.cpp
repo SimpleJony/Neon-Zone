@@ -41,74 +41,51 @@ void Timer(){
             timer_index++;
         }
 
-        if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
-            if (timer_index == 1){
-                if (timer_hour+1 > 99){
+        if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <= 255)) {
+            if (timer_index == 1) {
+                timer_hour++;
+                if (timer_hour > 99) {
                     timer_hour = 0;
-                    matrix.clear();
                 }
-                else{
-                    timer_hour++;
-                    delay(500);
-                    matrix.clear();
-                }
-            }
-            else if (timer_index == 2){
-                if (timer_minute+1 == 60){
+                delay(500);
+                matrix.clear();
+            } else if (timer_index == 2) {
+                timer_minute++;
+                if (timer_minute > 59) {
                     timer_minute = 0;
-                    matrix.clear();
                 }
-                else{
-                    timer_minute++;
-                    delay(500);
-                    matrix.clear();
-                }
-            }
-            else if (timer_index == 3){
-                if (timer_second+1 == 60){
+                delay(500);
+                matrix.clear();
+            } else if (timer_index == 3) {
+                timer_second++;
+                if (timer_second > 59) {
                     timer_second = 0;
-                    matrix.clear();
                 }
-                else{
-                    timer_second++;
-                    delay(500);
-                    matrix.clear();
-                }
+                delay(500);
+                matrix.clear();
             }
-        }
-        else if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
-            if (timer_index == 1){
-                if (timer_hour-1 < 0){
+        } else if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <= 5)) {
+            if (timer_index == 1) {
+                timer_hour--;
+                if (timer_hour < 0) {
                     timer_hour = 99;
-                    matrix.clear();
                 }
-                else{
-                    timer_hour--;
-                    delay(500);
-                    matrix.clear();
-                }
-            }
-            else if (timer_index == 2){
-                if (timer_minute-1 < 0){
+                delay(500);
+                matrix.clear();
+            } else if (timer_index == 2) {
+                timer_minute--;
+                if (timer_minute < 0) {
                     timer_minute = 59;
-                    matrix.clear();
                 }
-                else{
-                    timer_minute++;
-                    delay(500);
-                    matrix.clear();
-                }
-            }
-            else if (timer_index == 3){
-                if (timer_second-1 < 0){
+                delay(500);
+                matrix.clear();
+            } else if (timer_index == 3) {
+                timer_second--;
+                if (timer_second < 0) {
                     timer_second = 59;
-                    matrix.clear();
                 }
-                else{
-                    timer_second++;
-                    delay(500);
-                    matrix.clear();
-                }
+                delay(500);
+                matrix.clear();
             }
         }
 
