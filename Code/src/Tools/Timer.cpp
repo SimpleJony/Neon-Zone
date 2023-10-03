@@ -139,18 +139,18 @@ void Timer(){
         }
         matrix.clear();
         //显示小时
-        drawNumber(2,1,timer_hour / 10,r,g,b,Brightness);
-        drawNumber(6,1,timer_hour % 10,r,g,b,Brightness);
-        matrix.drawPixel(10,2,matrix.Color(r,g,b));
-        matrix.drawPixel(10,5,matrix.Color(r,g,b));
+        drawNumber(2,1,timer_hour / 10,255,255,255,Brightness);
+        drawNumber(6,1,timer_hour % 10,255,255,255,Brightness);
+        matrix.drawPixel(10,2,matrix.Color(255,255,255));
+        matrix.drawPixel(10,5,matrix.Color(255,255,255));
         //显示分钟
-        drawNumber(12,1,(timer_minute / 10),r,g,b,Brightness);
-        drawNumber(16,1,(timer_minute % 10),r,g,b,Brightness);
-        matrix.drawPixel(20,2,matrix.Color(r,g,b));
-        matrix.drawPixel(20,5,matrix.Color(r,g,b));
+        drawNumber(12,1,(timer_minute / 10),255,255,255,Brightness);
+        drawNumber(16,1,(timer_minute % 10),255,255,255,Brightness);
+        matrix.drawPixel(20,2,matrix.Color(255,255,255));
+        matrix.drawPixel(20,5,matrix.Color(255,255,255));
         //显示秒数
-        drawNumber(22,1,(timer_second / 10),r,g,b,Brightness);
-        drawNumber(26,1,(timer_second % 10),r,g,b,Brightness);
+        drawNumber(22,1,(timer_second / 10),255,255,255,Brightness);
+        drawNumber(26,1,(timer_second % 10),255,255,255,Brightness);
         matrix.show();
         delay(1000);
 
@@ -165,18 +165,18 @@ void Timer(){
                 }
                 matrix.clear();
                 //显示小时
-                drawNumber(2,1,0,r,g,b,Brightness);
-                drawNumber(6,1,0,r,g,b,Brightness);
-                matrix.drawPixel(10,2,matrix.Color(r,g,b));
-                matrix.drawPixel(10,5,matrix.Color(r,g,b));
+                drawNumber(2,1,0,255,255,255,Brightness);
+                drawNumber(6,1,0,255,255,255,Brightness);
+                matrix.drawPixel(10,2,matrix.Color(255,255,255));
+                matrix.drawPixel(10,5,matrix.Color(255,255,255));
                 //显示分钟
-                drawNumber(12,1,0,r,g,b,Brightness);
-                drawNumber(16,1,0,r,g,b,Brightness);
-                matrix.drawPixel(20,2,matrix.Color(r,g,b));
-                matrix.drawPixel(20,5,matrix.Color(r,g,b));
+                drawNumber(12,1,0,255,255,255,Brightness);
+                drawNumber(16,1,0,255,255,255,Brightness);
+                matrix.drawPixel(20,2,matrix.Color(255,255,255));
+                matrix.drawPixel(20,5,matrix.Color(255,255,255));
                 //显示秒数
-                drawNumber(22,1,0,r,g,b,Brightness);
-                drawNumber(26,1,0,r,g,b,Brightness);
+                drawNumber(22,1,0,255,255,255,Brightness);
+                drawNumber(26,1,0,255,255,255,Brightness);
                 matrix.show();
                 delay(1500);
             }
