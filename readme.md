@@ -19,6 +19,7 @@
 * 程序编写时用到的git的submodule，在将项目clone下来之后，你需要在Code文件夹下执行以下代码：
 ```
 git submodule init
+git submodule update
 ```
 
 ### 1. 使用git指令将改项目clone下来
