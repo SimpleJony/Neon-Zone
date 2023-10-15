@@ -142,18 +142,18 @@ void Timer(){
                 }
                 matrix.clear();
                 //显示小时
-                drawNumber(2,1,0,255,255,255,Brightness);
-                drawNumber(6,1,0,255,255,255,Brightness);
-                matrix.drawPixel(10,2,matrix.Color(255,255,255));
-                matrix.drawPixel(10,5,matrix.Color(255,255,255));
+                drawNumber(2,1,0,255,0,0,Brightness);
+                drawNumber(6,1,0,255,0,0,Brightness);
+                matrix.drawPixel(10,2,matrix.Color(255,0,0));
+                matrix.drawPixel(10,5,matrix.Color(255,0,0));
                 //显示分钟
-                drawNumber(12,1,0,255,255,255,Brightness);
-                drawNumber(16,1,0,255,255,255,Brightness);
-                matrix.drawPixel(20,2,matrix.Color(255,255,255));
-                matrix.drawPixel(20,5,matrix.Color(255,255,255));
+                drawNumber(12,1,0,255,0,0,Brightness);
+                drawNumber(16,1,0,255,0,0,Brightness);
+                matrix.drawPixel(20,2,matrix.Color(255,0,0));
+                matrix.drawPixel(20,5,matrix.Color(255,0,0));
                 //显示秒数
-                drawNumber(22,1,0,255,255,255,Brightness);
-                drawNumber(26,1,0,255,255,255,Brightness);
+                drawNumber(22,1,0,255,0,0,Brightness);
+                drawNumber(26,1,0,255,0,0,Brightness);
                 matrix.show();
                 delay(1500);
             }
