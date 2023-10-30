@@ -20,6 +20,8 @@ void miotBright(const String & bright);
 void Blinker_callback();
 void checkNetwork();
 void miotMode(uint8_t setMode);
+void miotColor(int32_t color);
+bool isPixelOn(int x,int y);
 
 //数据回调函数
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis)
@@ -110,6 +112,28 @@ void miotMode(uint8_t setMode)
 
     BlinkerMIOT.mode(setMode);
     BlinkerMIOT.print();
+}
+
+void miotColor(int32_t color){
+    uint8_t colorR = color >> 16 & 0xFF;
+    uint8_t colorG = color >> 8 & 0xFF;
+    uint8_t colorB = color & 0xFF;
+    BLINKER_LOG("Set color to: r=", colorR, ",g= ", colorG, ", b=", colorB);
+    for (int i=0;i<32;i++){
+        for (int j=0;j<8;j++){
+            if (isPixelOn(i,j)){
+                matrix.setPixelColor(j*32+i,matrix.Color(colorR,colorG,colorB));
+            }
+        }
+    }
+    matrix.show();
+    BlinkerMIOT.color(color);
+    BlinkerMIOT.print();
+}
+
+bool isPixelOn(int x,int y){
+    uint16_t color = matrix.getPixelColor(y*32+x);
+    return color != 0;
 }
 
 void checkNetwork(){
