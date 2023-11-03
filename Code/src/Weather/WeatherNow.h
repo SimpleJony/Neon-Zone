@@ -2,7 +2,7 @@
 #define _WEATHERNOW_H_
 
 #include <Arduino.h>
-#include <ArduinoJson.h>
+#include <../lib/blinker/src/modules/ArduinoJson/ArduinoJson.h>
 
 class WeatherNow {
 public:
