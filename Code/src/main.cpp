@@ -5,6 +5,7 @@
 #include <Arduino.h>
 #include <Blinker.h>
 #include <WiFi.h>
+#include <SoftAP/SoftAP.h>
 #undef ARDUINOJSON_DEFINE_PROGMEM_ARRAY
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
@@ -22,6 +23,7 @@ void setup(){
 
 void loop(){
     ShowMenu();
+    checkConnection(true);
     delay(200);
 }
 
@@ -34,7 +36,8 @@ void onBoot(){
     #if defined(BLINKER_PRINT)
     BLINKER_DEBUG.stream(BLINKER_PRINT);
     #endif
-    Blinker.begin(auth,ssid,pswd);
+    connectWifi(connectTimeOut);
+    Blinker.begin(auth,wifi_ssid.c_str(),wifi_pswd.c_str());
     BLINKER_TAST_INIT();
     Blinker_callback();
     matrix.begin();

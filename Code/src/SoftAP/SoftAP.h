@@ -10,11 +10,11 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 #include <esp_wifi.h>
+#include "Tools/config.h"
 
 extern const char* HOST_NAME;
-extern int connectTimeOut;
 void restoreWiFi();
-void checkDNS_HTTP();
+//void checkDNS_HTTP();
 void connectWifi(int timeout);
 void handleRoot();
 void handleConfigWifi();
@@ -24,5 +24,6 @@ void initDNSServer();
 void initWebServer();
 bool scanWifi();
 void wifiConfig();
+void checkConnection(bool isReconnect);
 
 #endif //CODE_SOFTAP_H

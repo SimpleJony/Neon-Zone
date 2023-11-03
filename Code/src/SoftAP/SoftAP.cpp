@@ -7,14 +7,37 @@
 const byte DNS_PORT = 53;
 const int webPort = 80;
 const char* AP_SSID = "Neon-Zone";
+const char* HOST_NAME = "My_NeonZone";
 String NetworksID = "";
-IPAddress apIP(192,168,11,1);
+IPAddress apIP(192,168,10,1);
 DNSServer dnsServer;
 WebServer webServer(webPort);
-#define ROOT_HTML  "<!DOCTYPE html><html><head><title>WIFI</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><style type=\"text/css\">.input{display: block; margin-top: 10px;}.input span{width: 100px; float: left; float: left; height: 36px; line-height: 36px;}.input input{height: 30px;width: 200px;}.btn{width: 120px; height: 35px; background-color: #000000; border:0px; color:#ffffff; margin-top:15px; margin-left:100px;}</style><body><form method=\"POST\" action=\"configwifi\"><label class=\"input\"><span>WiFi SSID</span><input type=\"text\" name=\"ssid\" value=\"\"></label><label class=\"input\"><span>WiFi PASS</span> <input type=\"text\"  name=\"pass\"></label><input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Submit\"> <p><span> Nearby wifi:</P></form>"
-String wifi_ssid = "";
-String wifi_pswd = "";
-int connectTimeOut = 15;
+#define ROOT_HTML  "<!DOCTYPE html><html>" \
+    "<head>" \
+    "<title>WIFI</title>" \
+    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" \
+    "</head>" \
+    "<style type=\"text/css\">" \
+    ".input{display: block; margin-top: 10px;}" \
+    ".input span{width: 100px; float: left; height: 36px; line-height: 36px;}" \
+    ".input input{height: 30px;width: 200px;}" \
+    ".btn{width: 120px; height: 35px; background-color: #000000; border:0px; color:#ffffff; margin-top:15px; margin-left:100px;}" \
+    "</style>" \
+    "<body>" \
+    "<form method=\"POST\" action=\"configwifi\">" \
+    "<label class=\"input\">" \
+    "<span>WiFi SSID</span>" \
+    "<input type=\"text\" name=\"ssid\">" \
+    "</label>" \
+    "<label class=\"input\">" \
+    "<span>WiFi PASS</span>" \
+    "<input type=\"text\" name=\"pass\">" \
+    "</label>" \
+    "<input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Submit\">" \
+    "<p><span> Nearby wifi:</span></p>" \
+    "</form>" \
+    "</body>" \
+    "</html>"
 
 void handleRoot() {
     if (webServer.hasArg("selectSSID")) {
@@ -30,7 +53,6 @@ void handleConfigWifi()               //返回http状态
     {
         Serial.print("got ssid:");
         wifi_ssid = webServer.arg("ssid");   //获取html表单输入框name名为"ssid"的内容
-
         Serial.println(wifi_ssid);
     }
     else                                //没有参数
@@ -79,12 +101,12 @@ void initSoftAP(){
     if (WiFi.softAP(AP_SSID)){
 
         Serial.println("Neon-Zone SoftAP Mode init");
-        Serial.print("SoftAP IP address = ");
-        Serial.println(WiFi.softAPIP());
-        Serial.println(String("MAC address = ")  + WiFi.softAPmacAddress().c_str());
+        Serial.print("SoftAP IP address: ");
+        Serial.print(WiFi.softAPIP());
+        Serial.println(String("MAC address: ")  + WiFi.softAPmacAddress().c_str());
     }
     else {
-        Serial.println("SoftAP mode init failed,board will reboot");
+        Serial.println("Neon-Zone SoftAP mode init failed,board will reboot");
         delay(1000);
         ESP.restart();
     }
@@ -92,20 +114,19 @@ void initSoftAP(){
 
 void initDNSServer(){
     if (dnsServer.start(DNS_PORT, "*", apIP)){
-        Serial.println("start dnsserver success.");
+        Serial.println("start DNSServer success.");
     }
     else {
-        Serial.println("start dnsserver failed.");
+        Serial.println("start DNSServer failed.");
     }
 }
 
 void initWebServer(){
-    if (MDNS.begin("Neon-Zone")){
+    if (MDNS.begin("Neon-Zone")){ // full name:Neon-Zone.local
         Serial.println("MDNS responder started");
     }
     webServer.on("/",HTTP_GET,handleRoot);
     webServer.on("/configWifi",HTTP_POST,handleConfigWifi);
-
     webServer.onNotFound(handleNotFound);
     webServer.begin();
     Serial.println("WebServer start!");
@@ -120,7 +141,7 @@ bool scanWifi(){
     }
     else {
         Serial.print(num_wifi);
-        Serial.print("wifi found");
+        Serial.print(" wifi found");
         for (int i=0;i<num_wifi;i++){
             Serial.print(i+1);
             Serial.print(": ");
@@ -143,13 +164,13 @@ void connectWifi(int timeout){
     WiFi.setAutoConnect(true);
 
     if (wifi_ssid != ""){
-        Serial.println("Connect wifi web config");
+        Serial.println("Connect wifi with web config");
         WiFi.begin(wifi_ssid.c_str(),wifi_pswd.c_str());
         wifi_ssid = "";
         wifi_pswd = "";
     }
     else {
-        Serial.println("Connect wift latest config");
+        Serial.println("Connect wifi with latest config");
         WiFi.begin();
     }
 
@@ -159,7 +180,7 @@ void connectWifi(int timeout){
         delay(1000);
         connectTime++;
         if (connectTime > connectTimeOut){
-            Serial.println("Wifi connect time out,let do config");
+            Serial.println("Wifi connect time out,let do AP config");
             wifiConfig();
             return;
         }
@@ -186,6 +207,17 @@ void wifiConfig(){
     scanWifi();
 }
 
+void checkConnection(bool isReconnect){
+    if (WiFi.status() != WL_CONNECTED){
+        if (isReconnect && WiFi.getMode() != WIFI_AP && WiFi.getMode() != WIFI_AP_STA){
+            Serial.println("Wifi is not connected.");
+            Serial.println("Wifi mode: ");
+            Serial.print(WiFi.getMode());
+            Serial.println("Connecting to Wifi...");
+            connectWifi(connectTimeOut);
+        }
+    }
+}
 
 void restoreWiFi() {
     delay(500);
@@ -193,8 +225,8 @@ void restoreWiFi() {
     Serial.println("连接信息已清空");
 }
 
-void checkDNS_HTTP()
-{
-    dnsServer.processNextRequest();
-    webServer.handleClient();
-}
+//void checkDNS_HTTP()
+//{
+//    dnsServer.processNextRequest();
+//    webServer.handleClient();
+//}

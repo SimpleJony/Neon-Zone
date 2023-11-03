@@ -24,8 +24,8 @@ extern String now_state;
 extern int menu_index;
 extern int info_index;
 
-extern const char* ssid;
-extern const char* pswd;
+extern String wifi_ssid;
+extern String wifi_pswd;
 extern const char* auth;
 extern const int SCREEN_WIDTH; //屏幕宽
 extern const int SCREEN_HEIGHT; //屏幕高
@@ -34,5 +34,6 @@ extern const long gmtOffset_sec;
 extern const int daylightOffset_sec;
 extern String UserKey;
 extern String location_code;
+extern int connectTimeOut;
 
 #endif //CODE_CONFIG_H
