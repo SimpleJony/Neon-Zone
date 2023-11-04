@@ -5,7 +5,6 @@
 #include <Arduino.h>
 #include <Blinker.h>
 #include <WiFi.h>
-#undef ARDUINOJSON_DEFINE_PROGMEM_ARRAY
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
 #include "Draw/ShowMenu.h"
