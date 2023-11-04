@@ -1,5 +1,6 @@
 <div align="center">
 
+[![Header Picture](https://z1.ax1x.com/2023/11/04/piMOQ0S.png)](https://imgse.com/i/piMOQ0S)
 # Neon Zone
 ### 一个基于ESP32制作的DIY像素灯
 
@@ -10,11 +11,14 @@
 
 ## 👐良好的开始
 ### 材料准备
+
 * 详细材料见“相关资料”
 
 ### 程序编译
 #### Tips:
 * 程序通过Clion(~~也可以使用vscode~~) + platformio插件编写实现，关于如何配置PlatformIo,请参考[此文档](https://docs.platformio.org/en/latest/integration/ide/pioide.html)
+
+* 如果在Clion中不好配置项目，可以使用~~vscode~~配置项目,再到Clion里面写代码
 
 * 程序编写时用到的git的submodule，在将项目clone下来之后，你需要在Code文件夹下执行以下代码：
 ```
@@ -32,6 +36,7 @@ git clone https://github.com/SimpleJony/Neon-Zone
 
 ## 📱功能实现
 * **小爱同学控制灯的运行**
+* ESP32 SoftAP 配网模式
 * 连接网络，自动获取时间，天气信息
 * 显示时间，天气
 * 计时器功能
@@ -40,7 +45,7 @@ git clone https://github.com/SimpleJony/Neon-Zone
 
 ## Credits
 * [SimpleJony](https://github.com/SimpleJony): 编写整个项目的程序
-* Kila: 外观设计&模型制作
+* [Kila](https://space.bilibili.com/278299486/?spm_id_from=333.999.0.0): 外观设计&模型制作
 * [Blinker](https://github.com/blinker-iot): IoT方案的提供
 * [QWeather](https://www.qweather.com/): 天气数据的提供
 * [Arduino](https://github.com/arduino): 程序编写所使用的语言
