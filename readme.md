@@ -10,7 +10,7 @@
 ---
 </div>
 
-[中文](https://github.com/SimpleJony/Neon-Zone/readme_cn.md) | [English](https://github.com/SimpleJony/Neon-Zone/readme_en.md)
+[中文](https://github.com/SimpleJony/Neon-Zone/blob/dev/readme_cn.md) | [English](https://github.com/SimpleJony/Neon-Zone/blob/dev/readme.md)
 
 ## 👐Get Started
 ### Material
