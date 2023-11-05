@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Header Picture](https://z1.ax1x.com/2023/11/04/piMOQ0S.png)](https://imgse.com/i/piMOQ0S)
+[![Header Picture](https://z1.ax1x.com/2023/11/05/piQY8Ld.png)](https://imgse.com/i/piQY8Ld)
 # Neon Zone
 ### 一个基于ESP32制作的DIY像素灯
 
