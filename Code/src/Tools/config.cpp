@@ -4,8 +4,8 @@
 
 #include "config.h"
 
-const char* ssid = "TP-LINK_6312甜馨2";
-const char* pswd = "12345678";
+String wifi_ssid = "";
+String wifi_pswd = "";
 const char* auth = "05aaa0279110";
 const int SCREEN_WIDTH = 32; //屏幕宽
 const int SCREEN_HEIGHT = 8; //屏幕高
@@ -25,3 +25,4 @@ String BlinkerButtonState_exit;
 String now_state = "menu";
 int menu_index = 1;
 int info_index = 1;
+int connectTimeOut = 10;
