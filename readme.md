@@ -2,52 +2,55 @@
 
 [![Header Picture](https://z1.ax1x.com/2023/11/05/piQY8Ld.png)](https://imgse.com/i/piQY8Ld)
 # Neon Zone
-### 一个基于ESP32制作的DIY像素灯
+### A DIY pixel light based on ESP32
 
 ---
-#### `Neon Zone`是一款基于ESP32制作的像素灯，通过WS2812b的灯板来驱动显示，Arduino编写程序运行，是一款集设计与实用性为一体的像素灯
+#### `Neon Zone`is a pixel light made based on ESP32. The display is driven by the light board of WS2812b, and the Arduino program is written and run. It is a pixel light integrating design and practicality
+
 ---
 </div>
 
-## 👐良好的开始
-### 材料准备
+[中文](https://github.com/SimpleJony/Neon-Zone/readme_cn.md) | [English](https://github.com/SimpleJony/Neon-Zone/readme_en.md)
 
-* 详细材料见“相关资料”
+## 👐Get Started
+### Material
 
-### 程序编译
+* See "Material" folder for details.
+
+### Program Compile
 #### Tips:
-* 程序通过Clion(~~也可以使用vscode~~) + platformio插件编写实现，关于如何配置PlatformIo,请参考[此文档](https://docs.platformio.org/en/latest/integration/ide/pioide.html)
+* Program is written by Clion(~~vscode is good for it too~~) + platformio plugin, about how to configure PlatformIO,please refer to [this document](https://docs.platformio.org/en/latest/integration/ide/pioide.html)
 
-* 如果在Clion中不好配置项目，可以使用~~vscode~~配置项目,再到Clion里面写代码
+* If it is difficult to configure the project in Clion, you can use vscode to configure the project and then write code in Clion
 
-* 程序编写时用到的git的submodule，在将项目clone下来之后，你需要在Code文件夹下执行以下代码：
+* The git submodule was used to write the program. After you clone the project, you need to execute the following Code in the code folder：
 ```
 git submodule init
 git submodule update
 ```
 
-### 1. 使用git指令将改项目clone下来
+### 1. Clone the project with git command
 ```
 git clone https://github.com/SimpleJony/Neon-Zone
 ```
-### 2. 将项目导入Clion，等待项目的初始化
-在Clion中选择`打开`，选中项目中的`Code`文件夹，点击打开
+### 2. Import project into Clion,wait for its initialization
+Choose `Open` in Clion，select the `Code` folder，click `Open`
 [![project-init](https://z1.ax1x.com/2023/10/01/pPLKoIU.png)](https://imgse.com/i/pPLKoIU)
 
-## 📱功能实现
-* **小爱同学控制灯的运行**
-* ESP32 SoftAP 配网模式
-* 连接网络，自动获取时间，天气信息
-* 显示时间，天气
-* 计时器功能
-* 贪吃蛇小游戏
-* 代码雨动画
+## 📱Function
+* **Control the light by XiaoAi**
+* ESP32 SoftAP network configure mode
+* Connect to the network, automatically get time, weather information
+* Show time, weather
+* Timer
+* Snake
+* Code rain animation
 
 ## Credits
-* [SimpleJony](https://github.com/SimpleJony): 编写整个项目的程序
-* [Kila](https://space.bilibili.com/278299486/?spm_id_from=333.999.0.0): 外观设计&模型制作
-* [Blinker](https://github.com/blinker-iot): IoT方案的提供
-* [QWeather](https://www.qweather.com/): 天气数据的提供
-* [Arduino](https://github.com/arduino): 程序编写所使用的语言
-* [Adafruit](https://github.com/adafruit): 灯板控制所用到的库
-* [嘉立创](https://www.jlc.com/): 3D打印服务提供
+* [SimpleJony](https://github.com/SimpleJony): Program the project
+* [Kila](https://space.bilibili.com/278299486/?spm_id_from=333.999.0.0): Exterior Design & Model making
+* [Blinker](https://github.com/blinker-iot): IoT Solution provider
+* [QWeather](https://www.qweather.com/): Weather data provider
+* [Arduino](https://github.com/arduino): Language used to write this project
+* [Adafruit](https://github.com/adafruit): Libs used to control the light
+* [JLC](https://www.jlc.com/): 3D print service provider
