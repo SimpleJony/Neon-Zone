@@ -32,6 +32,7 @@ git clone https://github.com/SimpleJony/Neon-Zone
 ```
 ### 2. 将项目导入Clion，等待项目的初始化
 在Clion中选择`打开`，选中项目中的`Code`文件夹，点击打开
+
 [![project-init](https://z1.ax1x.com/2023/10/01/pPLKoIU.png)](https://imgse.com/i/pPLKoIU)
 
 ## 📱功能实现
