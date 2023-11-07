@@ -520,6 +520,55 @@ void drawSet(){
     matrix.show();
 }
 
+void drawArrow(){
+    for (int i=22;i<=26;i++){
+        matrix.drawPixel(i,4,matrix.Color(255,0,0));
+    }
+    matrix.drawPixel(26,2,matrix.Color(255,0,0));
+    matrix.drawPixel(27,3,matrix.Color(255,0,0));
+    matrix.drawPixel(28,4,matrix.Color(255,0,0));
+    matrix.drawPixel(27,5,matrix.Color(255,0,0));
+    matrix.drawPixel(26,6,matrix.Color(255,0,0));
+    matrix.show();
+}
+
+void drawAP(){
+    matrix.drawPixel(8,2,matrix.Color(0,183,239));
+    matrix.drawPixel(7,3,matrix.Color(0,183,239));
+    matrix.drawPixel(9,3,matrix.Color(0,183,239));
+    for (int i=4;i<=6;i++){
+        matrix.drawPixel(6,i,matrix.Color(0,183,239));
+        matrix.drawPixel(10,i,matrix.Color(0,183,239));
+    }
+    for (int i=7;i<=9;i++){
+        matrix.drawPixel(i,5,matrix.Color(0,183,239));
+    }
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(13,i,matrix.Color(0,183,239));
+    }
+    for (int i=14;i<=16;i++){
+        matrix.drawPixel(i,2,matrix.Color(0,183,239));
+        matrix.drawPixel(i,4,matrix.Color(0,183,239));
+    }
+    matrix.drawPixel(16,3,matrix.Color(0,183,239));
+
+    matrix.show();
+}
+
+void drawX(){
+    matrix.drawPixel(22,2,matrix.Color(255,0,0));
+    matrix.drawPixel(26,2,matrix.Color(255,0,0));
+    matrix.drawPixel(23,3,matrix.Color(255,0,0));
+    matrix.drawPixel(25,3,matrix.Color(255,0,0));
+    matrix.drawPixel(24,4,matrix.Color(255,0,0));
+    matrix.drawPixel(23,5,matrix.Color(255,0,0));
+    matrix.drawPixel(25,5,matrix.Color(255,0,0));
+    matrix.drawPixel(22,6,matrix.Color(255,0,0));
+    matrix.drawPixel(26,6,matrix.Color(255,0,0));
+
+    matrix.show();
+}
+
 void drawProgressBar(){
     matrix.clear();
     int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);

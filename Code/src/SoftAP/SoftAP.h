@@ -11,6 +11,7 @@
 #include <ESPmDNS.h>
 #include <esp_wifi.h>
 #include "Tools/config.h"
+#include "Draw/DrawThings.h"
 
 extern const char* HOST_NAME;
 

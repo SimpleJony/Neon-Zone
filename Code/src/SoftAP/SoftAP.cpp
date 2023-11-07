@@ -190,7 +190,16 @@ void connectWifi(int timeout) {
         delay(1000);
         connectTime++;
         if (connectTime == connectTimeOut) {
+            Serial.printf("\n");
             Serial.println("Connect to wifi failed,will do web config now");
+            matrix.clear();
+            drawWifi();
+            drawX();
+            delay(2000);
+            matrix.clear();
+            is_APmode = true;
+            drawAP();
+            drawArrow();
             configWifi();
             return;
         }

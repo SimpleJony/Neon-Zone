@@ -5,7 +5,6 @@
 #include <Arduino.h>
 #include <Blinker.h>
 #include <WiFi.h>
-#include <EEPROM.h>
 #include "Draw/ShowThings.h"
 #include "Draw/DrawAnimation.h"
 #include "Draw/ShowMenu.h"
@@ -13,11 +12,8 @@
 #include "Tools/config.h"
 #include "SoftAP/SoftAP.h"
 
-EEPROMClass IS_FIRST_BOOT("eeprom0");
-bool is_first_boot = false;
 // 函数声明
 void onBoot();
-void EEPROMInit();
 
 void setup(){
     Serial.begin(115200);
@@ -27,7 +23,7 @@ void setup(){
 void loop(){
     checkDNS();
     if (WiFi.status() == WL_CONNECTED){
-        if (is_first_boot){
+        if (is_APmode){
             ESP.restart();
         }
         ShowMenu();
@@ -51,15 +47,14 @@ void onBoot(){
     delay(2000);
     matrix.clear();
     delay(1000);
-    EEPROMInit();
     drawWifi();
+    drawArrow();
     connectWifi(connectTimeOut);
     if (WiFi.status() == WL_CONNECTED){
+        matrix.clear();
+        drawWifi();
         drawSuccess();
         delay(1000);
-        if (is_first_boot){
-            ESP.restart();
-        }
         Blinker.begin(auth,WiFi.SSID().c_str(),WiFi.psk().c_str());
         BLINKER_TAST_INIT();
         Blinker_callback();
@@ -68,24 +63,4 @@ void onBoot(){
         weatherNow.get();
         matrix.clear();
     }
-}
-
-void EEPROMInit(){
-    Serial.println("Neon Zone EEPROM initialize start.");
-    if (!IS_FIRST_BOOT.begin(2)){
-        Serial.println("Failed to initialize IS_FIRST_BOOT");
-        Serial.println("Board will reboot.");
-        delay(1000);
-        ESP.restart();
-    }
-
-    if (IS_FIRST_BOOT.readUChar(0) != 0xA5 || IS_FIRST_BOOT.readUChar(1) != 0x5A){
-        Serial.println("Neon Zone first boot detected.");
-        is_first_boot = true;
-        IS_FIRST_BOOT.writeUChar(0,0xA5);
-        IS_FIRST_BOOT.writeUChar(1,0x5A);
-        IS_FIRST_BOOT.commit();
-    }
-
-    Serial.println("Neon Zone EEPROM initialize succeed.");
 }

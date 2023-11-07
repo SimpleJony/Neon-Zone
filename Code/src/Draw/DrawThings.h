@@ -24,6 +24,9 @@ void drawUnknown();
 void drawWeather();
 void drawInfo();
 void drawSet();
+void drawArrow();
+void drawAP();
+void drawX();
 void drawProgressBar();
 void adjustBrightness();
 
