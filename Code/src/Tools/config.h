@@ -36,5 +36,6 @@ extern String UserKey;
 extern String location_code;
 extern int connectTimeOut;
 extern bool is_APmode;
+extern int weatherRetryTime ;
 
 #endif //CODE_CONFIG_H

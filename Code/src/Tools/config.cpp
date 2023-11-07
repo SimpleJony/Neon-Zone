@@ -27,3 +27,4 @@ int menu_index = 1;
 int info_index = 1;
 int connectTimeOut = 10;
 bool is_APmode = false;
+int weatherRetryTime = 0;

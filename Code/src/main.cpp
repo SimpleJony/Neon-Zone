@@ -61,6 +61,14 @@ void onBoot(){
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
         weatherNow.config(UserKey,location_code);
         weatherNow.get();
+        if (!weatherNow.get()){
+            if (weatherRetryTime == 5){
+                Serial.println("Can't receive weather data.");
+            }
+            weatherRetryTime++;
+            delay(1000);
+            weatherNow.get();
+        }
         matrix.clear();
     }
 }
