@@ -12,6 +12,7 @@
 #include "Game/Game.h"
 #include "Tools/config.h"
 #include "Tools/Timer.h"
+#include "SoftAP/SoftAP.h"
 
 void ShowMenu();
 void ShowInfo();

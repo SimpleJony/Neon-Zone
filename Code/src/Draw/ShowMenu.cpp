@@ -66,6 +66,10 @@ void ShowMenu(){
             }
         }
 
+        if (BlinkerButtonState_confirm == "press"){
+            restoreWifi();
+        }
+
         if (now_state == "info"){
             matrix.clear();
             ShowInfo();

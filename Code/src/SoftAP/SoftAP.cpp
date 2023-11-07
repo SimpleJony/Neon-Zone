@@ -229,3 +229,11 @@ void checkDNS(){
     dnsServer.processNextRequest();
     webServer.handleClient();
 }
+
+void restoreWifi(){
+    esp_wifi_restore();
+    delay(500);
+    Serial.println("Clear the wifi data now.");
+    Serial.println("Will restart now");
+    ESP.restart();
+}
