@@ -46,8 +46,8 @@ void showWeather(){
     matrix.clear();
     int weatherCode = weatherNow.getIcon();
     int temperature = weatherNow.getTemp();
-    drawNumber(14,1,temperature / 10,0,183,239,50);
-    drawNumber(19,1,temperature % 10,0,183,239,50);
+    drawNumber(14,1,temperature / 10,0,183,239,Brightness);
+    drawNumber(19,1,temperature % 10,0,183,239,Brightness);
     for (int i=24;i<=26;i++){
         matrix.drawPixel(i,1,matrix.Color(0,183,239));
         matrix.drawPixel(i,3,matrix.Color(0,183,239));
@@ -93,9 +93,9 @@ void showWeather(){
 void showCountDown(){
     matrix.clear();
     int day_left = CountDown();
-    drawNumber(9,1,day_left / 100,0,183,239,50);
-    drawNumber(13,1,(day_left % 100) / 10,0,183,239,50);
-    drawNumber(17,1,day_left % 10,0,183,239,50);
+    drawNumber(9,1,day_left / 100,0,183,239,Brightness);
+    drawNumber(13,1,(day_left % 100) / 10,0,183,239,Brightness);
+    drawNumber(17,1,day_left % 10,0,183,239,Brightness);
     matrix.show();
     while (now_state == "countdown"){
         if (BlinkerButtonState_exit == "tap"){

@@ -105,11 +105,11 @@ void snakeGame() {
             drawScore();
             delay(1000);
             if (snake_length-3 > 9){
-                drawNumber(23,1,(snake_length-3)/10,255,163,177,50);
-                drawNumber(28,1,(snake_length-3)%10,255,163,177,50);
+                drawNumber(23,1,(snake_length-3)/10,255,163,177,Brightness);
+                drawNumber(28,1,(snake_length-3)%10,255,163,177,Brightness);
             }
             else {
-                drawNumber(23,1,snake_length-3,255,163,177,50);
+                drawNumber(23,1,snake_length-3,255,163,177,Brightness);
             }
             delay(3000);
             resetGame(snake, food, snake_length, snake_speed, snake_x, snake_y, snake_r, snake_g, snake_b, direction);
@@ -125,11 +125,11 @@ void snakeGame() {
                 drawScore();
                 delay(1000);
                 if (snake_length-3 > 9){
-                    drawNumber(23,1,(snake_length-3)/10,255,163,177,50);
-                    drawNumber(28,1,(snake_length-3)%10,255,163,177,50);
+                    drawNumber(23,1,(snake_length-3)/10,255,163,177,Brightness);
+                    drawNumber(28,1,(snake_length-3)%10,255,163,177,Brightness);
                 }
                 else {
-                    drawNumber(23,1,snake_length-3,255,163,177,50);
+                    drawNumber(23,1,snake_length-3,255,163,177,Brightness);
                 }
                 delay(3000);
                 resetGame(snake, food, snake_length, snake_speed, snake_x, snake_y, snake_r, snake_g, snake_b, direction);
