@@ -101,7 +101,7 @@ void ShowInfo(){
         }
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (info_index == 1){
-                info_index = 3;
+                info_index = 4;
             }
             else {
                 info_index -= 1;
@@ -109,7 +109,7 @@ void ShowInfo(){
         }
 
         if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
-            if (info_index == 3){
+            if (info_index == 4){
                 info_index = 1;
             }
             else {
@@ -132,6 +132,11 @@ void ShowInfo(){
             drawWeather();
             delay(500);
         }
+        if (info_index == 4){
+            matrix.clear();
+            drawCountDown();
+            delay(500);
+        }
 
         if (BlinkerButtonState_confirm=="tap"){
             BlinkerButtonState_confirm = "null";
@@ -147,6 +152,10 @@ void ShowInfo(){
                 matrix.clear();
                 now_state = "weather";
             }
+            else if (info_index == 4){
+                matrix.clear();
+                now_state = "countdown";
+            }
         }
 
         if (now_state == "time"){
@@ -160,6 +169,10 @@ void ShowInfo(){
         else if (now_state == "weather"){
             matrix.clear();
             showWeather();
+        }
+        else if (now_state == "countdown"){
+            matrix.clear();
+            showCountDown();
         }
     }
 }

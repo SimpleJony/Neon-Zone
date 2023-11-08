@@ -569,6 +569,26 @@ void drawX(){
     matrix.show();
 }
 
+void drawCountDown(){
+    for (int i=1;i<=6;i++){
+        matrix.drawPixel(9,i,matrix.Color(255,0,0));
+        matrix.drawPixel(20,i,matrix.Color(255,0,0));
+    }
+    matrix.drawPixel(10,1,matrix.Color(255,0,0));
+    matrix.drawPixel(10,6,matrix.Color(255,0,0));
+    matrix.drawPixel(19,1,matrix.Color(255,0,0));
+    matrix.drawPixel(19,6,matrix.Color(255,0,0));
+    matrix.drawPixel(12,3,matrix.Color(255,0,0));
+    matrix.drawPixel(13,4,matrix.Color(255,0,0));
+    matrix.drawPixel(14,5,matrix.Color(255,0,0));
+    matrix.drawPixel(15,4,matrix.Color(255,0,0));
+    matrix.drawPixel(16,3,matrix.Color(255,0,0));
+    matrix.drawPixel(17,2,matrix.Color(255,0,0));
+
+
+    matrix.show();
+}
+
 void drawProgressBar(){
     matrix.clear();
     int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);

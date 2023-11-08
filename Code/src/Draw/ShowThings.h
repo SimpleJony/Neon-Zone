@@ -14,10 +14,12 @@
 #include "DrawAnimation.h"
 #include "Game/Game.h"
 #include "ShowMenu.h"
+#include "Tools/CountDown.h"
 
 extern WeatherNow weatherNow; //天气定义
 
 void showTime(int r,int g,int b);
 void showWeather();
+void showCountDown();
 
 #endif //CODE_SHOWTHINGS_H

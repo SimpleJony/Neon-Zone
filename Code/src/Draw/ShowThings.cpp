@@ -88,5 +88,21 @@ void showWeather(){
             ShowInfo();
         }
     }
+}
 
+void showCountDown(){
+    matrix.clear();
+    int day_left = CountDown();
+    drawNumber(9,1,day_left / 100,0,183,239,50);
+    drawNumber(13,1,(day_left % 100) / 10,0,183,239,50);
+    drawNumber(17,1,day_left % 10,0,183,239,50);
+    matrix.show();
+    while (now_state == "countdown"){
+        if (BlinkerButtonState_exit == "tap"){
+            BlinkerButtonState_exit = "null";
+            matrix.clear();
+            now_state = "info";
+            ShowInfo();
+        }
+    }
 }
