@@ -60,14 +60,13 @@ void onBoot(){
         Blinker_callback();
         configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
         weatherNow.config(UserKey,location_code);
-        weatherNow.get();
-        if (!weatherNow.get()){
+        while (!weatherNow.get()) {
             if (weatherRetryTime == 5){
-                Serial.println("Can't receive weather data.");
+                Serial.println("Weather data receive failed.");
+                break;
             }
             weatherRetryTime++;
             delay(1000);
-            weatherNow.get();
         }
         matrix.clear();
     }
