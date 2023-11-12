@@ -31,5 +31,3 @@ int connectTimeOut = 10;
 bool is_APmode = false;
 int weatherRetryTime = 0;
 tm target_date = {};
-bool state_c = false;
-bool state_e = false;

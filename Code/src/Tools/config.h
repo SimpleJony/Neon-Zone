@@ -44,7 +44,5 @@ extern int connectTimeOut;
 extern bool is_APmode;
 extern int weatherRetryTime;
 extern tm target_date;
-extern bool state_c;
-extern bool state_e;
 
 #endif //CODE_CONFIG_H

@@ -11,7 +11,6 @@
 #include "BlinkerControl/XiaoAiControl.h"
 #include "Tools/config.h"
 #include "SoftAP/SoftAP.h"
-#include "Tools/Button.h"
 
 // 函数声明
 void onBoot();
