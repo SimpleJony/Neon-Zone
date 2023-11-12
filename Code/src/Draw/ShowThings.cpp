@@ -13,7 +13,8 @@ void showTime(int r,int g,int b){
     matrix.clear();
     delay(500);
     while (now_state == "time") {
-        if (BlinkerButtonState_exit == "tap"){
+        int buttonState_e  = digitalRead(16);
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "info";
@@ -46,6 +47,7 @@ void showWeather(){
     matrix.clear();
     int weatherCode = weatherNow.getIcon();
     int temperature = weatherNow.getTemp();
+    int buttonState_e;
     drawNumber(14,1,temperature / 10,0,183,239,Brightness);
     drawNumber(19,1,temperature % 10,0,183,239,Brightness);
     for (int i=24;i<=26;i++){
@@ -80,8 +82,11 @@ void showWeather(){
             break;
     }
     matrix.show();
+    while (buttonState_e != 0){
+        buttonState_e = digitalRead(16);
+    }
     while (now_state == "weather"){
-        if (BlinkerButtonState_exit == "tap"){
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "info";
@@ -93,12 +98,16 @@ void showWeather(){
 void showCountDown(){
     matrix.clear();
     int day_left = CountDown();
+    int buttonState_e;
     drawNumber(9,1,day_left / 100,0,183,239,Brightness);
     drawNumber(13,1,(day_left % 100) / 10,0,183,239,Brightness);
     drawNumber(17,1,day_left % 10,0,183,239,Brightness);
     matrix.show();
+    while (buttonState_e != 0){
+        buttonState_e = digitalRead(16);
+    }
     while (now_state == "countdown"){
-        if (BlinkerButtonState_exit == "tap"){
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "info";

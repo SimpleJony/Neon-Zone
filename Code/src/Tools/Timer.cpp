@@ -13,9 +13,11 @@ void Timer(){
     int timer_index = 1;
 
     while (now_state == "timer"){
+        int buttonState_c = digitalRead(14);
+        int buttonState_e = digitalRead(16);
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        if (BlinkerButtonState_exit == "tap"){
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "info";
@@ -36,7 +38,7 @@ void Timer(){
         drawNumber(26,1,(timer_second % 10),r,g,b,Brightness);
         matrix.show();
 
-        if (BlinkerButtonState_confirm == "tap"){
+        if (BlinkerButtonState_confirm == "tap" || buttonState_c == 0){
             BlinkerButtonState_confirm = "null";
             timer_index++;
         }
@@ -96,7 +98,9 @@ void Timer(){
     auto start_time = millis();
 
     while (now_state == "timer"){
-        if (BlinkerButtonState_exit == "tap"){
+        int buttonState_c = digitalRead(14);
+        int buttonState_e = digitalRead(16);
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "menu";
@@ -134,7 +138,9 @@ void Timer(){
         if (timer_second == 0 && timer_minute == 0 && timer_hour == 0){
             matrix.clear();
             while (now_state == "timer"){
-                if (BlinkerButtonState_exit == "tap"){
+                int buttonState_c = digitalRead(14);
+                int buttonState_e = digitalRead(16);
+                if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
                     BlinkerButtonState_exit = "null";
                     matrix.clear();
                     now_state = "menu";

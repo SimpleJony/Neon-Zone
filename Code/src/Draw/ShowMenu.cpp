@@ -7,6 +7,7 @@ void ShowMenu(){
     while (now_state == "menu"){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
+        int buttonState_c = digitalRead(14);
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (menu_index == 1){
                 menu_index = 4;
@@ -46,7 +47,7 @@ void ShowMenu(){
             delay(500);
         }
 
-        if (BlinkerButtonState_confirm=="tap"){
+        if (BlinkerButtonState_confirm=="tap" || buttonState_c == 0){
             BlinkerButtonState_confirm = "null";
             if (menu_index == 1){
                 matrix.clear();
@@ -93,7 +94,9 @@ void ShowInfo(){
     while (now_state == "info"){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        if (BlinkerButtonState_exit == "tap"){
+        int buttonState_c = digitalRead(14);
+        int buttonState_e  = digitalRead(16);
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "menu";
@@ -138,7 +141,7 @@ void ShowInfo(){
             delay(500);
         }
 
-        if (BlinkerButtonState_confirm=="tap"){
+        if (BlinkerButtonState_confirm=="tap" || buttonState_c == 0){
             BlinkerButtonState_confirm = "null";
             if (info_index == 1){
                 matrix.clear();
@@ -181,7 +184,8 @@ void ShowSet(){
     while (now_state == "setting"){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        if (BlinkerButtonState_exit == "tap"){
+        int buttonState_e  = digitalRead(16);
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
             now_state = "menu";
