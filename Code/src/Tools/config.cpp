@@ -15,8 +15,6 @@ const int daylightOffset_sec = 0;
 String UserKey = "3c446a5a055846a08e479b2ec283b110";
 String location_code = "101260307";
 Adafruit_NeoMatrix matrix(SCREEN_WIDTH, SCREEN_HEIGHT, PIN_LIGHT, NEO_MATRIX_TOP + NEO_MATRIX_LEFT + NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG, NEO_GRB + NEO_KHZ800);
-OneButton button_c(button_confirm,false);
-OneButton button_e(button_exit,false);
 int Brightness = 80;
 int joystick_x;
 int joystick_y;

@@ -7,18 +7,13 @@
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
 #include <time.h>
-#include <OneButton.h>
 #include "Weather/WeatherNow.h"
 #include "Weather/HttpsGetUtils.h"
 #define PIN_LIGHT 5 //定义WS2812模块 GPIO
 #define adc0 6
 #define adc1 7
-#define button_confirm 14
-#define button_exit 16
 
 extern Adafruit_NeoMatrix matrix;
-extern OneButton button_c;
-extern OneButton button_e;
 extern int Brightness;
 extern int joystick_x;
 extern int joystick_y;
