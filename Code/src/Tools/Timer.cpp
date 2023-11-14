@@ -40,8 +40,8 @@ void Timer(){
 
         if (BlinkerButtonState_confirm == "tap" || buttonState_c == 0){
             BlinkerButtonState_confirm = "null";
-            buttonState_c = 1;
             timer_index++;
+            delay(1000);
         }
 
         if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <= 255)) {
