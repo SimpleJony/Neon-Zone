@@ -39,5 +39,7 @@ extern int connectTimeOut;
 extern bool is_APmode;
 extern int weatherRetryTime;
 extern tm target_date;
+extern int buttonState_c;
+extern int buttonState_e;
 
 #endif //CODE_CONFIG_H

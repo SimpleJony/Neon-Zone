@@ -76,8 +76,8 @@ void snakeGame() {
         snake[i].b = snake_b;
     }
     while (now_state == "snakegame") {
-        int buttonState_c = digitalRead(14);
-        int buttonState_e = digitalRead(16);
+        buttonState_c = digitalRead(14);
+        buttonState_e = digitalRead(34);
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();

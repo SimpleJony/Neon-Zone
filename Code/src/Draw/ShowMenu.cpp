@@ -5,9 +5,16 @@
 
 void ShowMenu(){
     while (now_state == "menu"){
+        buttonState_c = digitalRead(14);
+        buttonState_e = digitalRead(34);
+        Serial.println("C=");
+        Serial.print(buttonState_c);
+        Serial.printf("\n");
+        Serial.println("E=");
+        Serial.printf("\n");
+        Serial.print(buttonState_e);
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        int buttonState_c = digitalRead(14);
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (menu_index == 1){
                 menu_index = 4;
@@ -92,10 +99,10 @@ void ShowMenu(){
 
 void ShowInfo(){
     while (now_state == "info"){
+        buttonState_c = digitalRead(14);
+        buttonState_e = digitalRead(34);
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        int buttonState_c = digitalRead(14);
-        int buttonState_e  = digitalRead(16);
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
@@ -184,7 +191,8 @@ void ShowSet(){
     while (now_state == "setting"){
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
-        int buttonState_e  = digitalRead(16);
+        buttonState_c = digitalRead(14);
+        buttonState_e = digitalRead(34);
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
