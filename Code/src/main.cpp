@@ -42,6 +42,7 @@ void onBoot(){
     #endif
     matrix.begin();
     matrix.setBrightness(Brightness);
+    matrix.setRotation(2);
     matrix.show();
     rainbowLight();
     delay(2000);
