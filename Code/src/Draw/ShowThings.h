@@ -21,5 +21,6 @@ extern WeatherNow weatherNow; //天气定义
 void showTime(int r,int g,int b);
 void showWeather();
 void showCountDown();
+void showLight();
 
 #endif //CODE_SHOWTHINGS_H

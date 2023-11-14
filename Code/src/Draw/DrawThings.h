@@ -28,6 +28,7 @@ void drawArrow();
 void drawAP();
 void drawX();
 void drawCountDown();
+void drawLight();
 void drawProgressBar();
 void adjustBrightness();
 

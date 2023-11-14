@@ -118,3 +118,36 @@ void showCountDown(){
         }
     }
 }
+
+void showLight(){
+    bool light_state = 0;
+    matrix.clear();
+    delay(500);
+    while (now_state == "light"){
+        buttonState_c = digitalRead(14);
+        buttonState_e = digitalRead(34);
+        if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
+            BlinkerButtonState_exit = "null";
+            matrix.clear();
+            now_state = "menu";
+            ShowMenu();
+        }
+        if ((BlinkerButtonState_confirm == "tap" || buttonState_c == 0) && light_state==0){
+            light_state = 1;
+        }
+        if ((BlinkerButtonState_confirm == "tap" || buttonState_c == 0) && light_state==1){
+            light_state = 0;
+        }
+    
+        if (light_state == 0){
+            matrix.clear();
+            matrix.fillScreen(matrix.Color(255,255,255));
+            matrix.show();
+        }
+        else if (light_state == 1){
+            matrix.clear();
+            matrix.fillScreen(matrix.Color(255,185,105));
+            matrix.show();
+        }
+    }
+}

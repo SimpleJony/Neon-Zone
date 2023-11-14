@@ -7,17 +7,11 @@ void ShowMenu(){
     while (now_state == "menu"){
         buttonState_c = digitalRead(14);
         buttonState_e = digitalRead(34);
-        Serial.println("C=");
-        Serial.print(buttonState_c);
-        Serial.printf("\n");
-        Serial.println("E=");
-        Serial.printf("\n");
-        Serial.print(buttonState_e);
         joystick_x = analogRead(adc0);
         joystick_y = analogRead(adc1);
         if ((joystick_x == 0 && joystick_y != 0) || (BlinkerX >= 0 && BlinkerX <=5)){
             if (menu_index == 1){
-                menu_index = 4;
+                menu_index = 5;
             }
             else {
                 menu_index -= 1;
@@ -25,7 +19,7 @@ void ShowMenu(){
         }
 
         if ((joystick_x == 8191 && joystick_y != 0) || (BlinkerX >= 250 && BlinkerX <=255)){
-            if (menu_index == 4){
+            if (menu_index == 5){
                 menu_index = 1;
             }
             else {
@@ -53,6 +47,11 @@ void ShowMenu(){
             drawSet();
             delay(500);
         }
+        if (menu_index == 5){
+            matrix.clear();
+            drawLight();
+            delay(500);
+        }
 
         if (BlinkerButtonState_confirm=="tap" || buttonState_c == 0){
             BlinkerButtonState_confirm = "null";
@@ -71,6 +70,10 @@ void ShowMenu(){
             else if (menu_index == 4){
                 matrix.clear();
                 now_state = "setting";
+            }
+            else if (menu_index == 5){
+                matrix.clear();
+                now_state = "light";
             }
         }
 
@@ -93,6 +96,10 @@ void ShowMenu(){
         else if (now_state == "setting"){
             matrix.clear();
             ShowSet();
+        }
+        else if (now_state == "light"){
+            matrix.clear();
+            showLight();
         }
     }
 }
