@@ -84,9 +84,6 @@ void showWeather(){
             break;
     }
     matrix.show();
-    while (buttonState_e != 0){
-        buttonState_e = digitalRead(16);
-    }
     while (now_state == "weather"){
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
@@ -106,9 +103,6 @@ void showCountDown(){
     drawNumber(13,1,(day_left % 100) / 10,0,183,239,Brightness);
     drawNumber(17,1,day_left % 10,0,183,239,Brightness);
     matrix.show();
-    while (buttonState_e != 0){
-        buttonState_e = digitalRead(16);
-    }
     while (now_state == "countdown"){
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
