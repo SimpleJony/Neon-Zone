@@ -3,7 +3,7 @@
 //
 #include "Game.h"
 
-void resetGame(Snake snake[], Food &food, int &snake_length, int &snake_speed, int &snake_x, int &snake_y, int &snake_r, int &snake_g, int &snake_b, String &direction) {
+void resetGame(Snake* snake, Food &food, int &snake_length, int &snake_speed, int &snake_x, int &snake_y, int &snake_r, int &snake_g, int &snake_b, String &direction) {
     joystick_x = 0;
     joystick_y = 0;
 
@@ -43,7 +43,7 @@ void snakeGame() {
     joystick_x = 0;
     joystick_y = 0;
 
-    Snake snake[SCREEN_WIDTH * SCREEN_HEIGHT];
+    Snake* snake = new Snake[SCREEN_WIDTH * SCREEN_HEIGHT];
     Food food;
 
     int snake_length = 3;
@@ -81,6 +81,7 @@ void snakeGame() {
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){
             BlinkerButtonState_exit = "null";
             matrix.clear();
+            delete[] snake;
             now_state = "menu";
             ShowMenu();
         }
