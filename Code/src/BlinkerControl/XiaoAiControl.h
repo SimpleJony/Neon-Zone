@@ -13,6 +13,7 @@ BlinkerJoystick Controller("Controller");
 BlinkerButton ButtonConfirm("btn-confirm");
 BlinkerButton ButtonExit("btn-exit");
 BlinkerSlider BrightnessControl("Brightness-Control");
+BlinkerText TextMode("tex-mode");
 
 //函数创建
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis);
@@ -116,6 +117,16 @@ void miotMode(uint8_t setMode)
 
 void heartbeat(){
     BrightnessControl.print(Brightness);
+
+    if (now_state == "menu") TextMode.print("当前模式: 主页");
+    else if (now_state == "info") TextMode.print("当前模式: 信息");
+    else if (now_state == "time") TextMode.print("当前模式: 时间");
+    else if (now_state == "timer") TextMode.print("当前模式: 计时");
+    else if (now_state == "countdown") TextMode.print("当前模式: 倒计时");
+    else if (now_state == "weather") TextMode.print("当前模式: 天气");
+    else if (now_state == "snakegame") TextMode.print("当前模式: 贪吃蛇");
+    else if (now_state == "gif") TextMode.print("当前模式: GIF");
+    else if (now_state == "set") TextMode.print("当前模式: 设置");
 }
 
 void checkNetwork(){
