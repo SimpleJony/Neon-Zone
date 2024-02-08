@@ -17,6 +17,7 @@ BlinkerSlider BrightnessControl("Brightness-Control");
 //函数创建
 void joystickController_callback(uint8_t xAxis, uint8_t yAxis);
 void miotBright(const String & bright);
+void heartbeat();
 void Blinker_callback();
 void checkNetwork();
 void miotMode(uint8_t setMode);
@@ -62,6 +63,7 @@ void Blinker_callback(){
     BrightnessControl.attach(BrightnessControl_callback);
     BlinkerMIOT.attachBrightness(miotBright);
     BlinkerMIOT.attachMode(miotMode);
+    Blinker.attachHeartbeat(heartbeat);
 }
 
 void miotBright(const String & bright)
@@ -110,6 +112,10 @@ void miotMode(uint8_t setMode)
 
     BlinkerMIOT.mode(setMode);
     BlinkerMIOT.print();
+}
+
+void heartbeat(){
+    BrightnessControl.print(Brightness);
 }
 
 void checkNetwork(){
