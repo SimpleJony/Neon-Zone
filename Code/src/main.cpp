@@ -40,6 +40,7 @@ void onBoot(){
     #if defined(BLINKER_PRINT)
     BLINKER_DEBUG.stream(BLINKER_PRINT);
     #endif
+    EEPROM.begin(3100);
     matrix.begin();
     matrix.setBrightness(Brightness);
     matrix.setRotation(2);
@@ -50,6 +51,9 @@ void onBoot(){
     delay(1000);
     drawWifi();
     drawArrow();
+    EEPROM.get(3000, countdown_year);
+    EEPROM.get(3000 + sizeof(int), countdown_month);
+    EEPROM.get(3000 + 2 * sizeof(int), countdown_day);
     connectWifi(connectTimeOut);
     if (WiFi.status() == WL_CONNECTED){
         matrix.clear();

@@ -31,3 +31,6 @@ int weatherRetryTime = 0;
 tm target_date = {};
 int buttonState_c;
 int buttonState_e;
+int countdown_year;
+int countdown_month;
+int countdown_day;

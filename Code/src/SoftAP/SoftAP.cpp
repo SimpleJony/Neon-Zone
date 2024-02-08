@@ -35,6 +35,18 @@ WebServer webServer(webPort);
     "<span>WiFi PASS</span>" \
     "<input type=\"text\" name=\"pass\">" \
     "</label>" \
+    "<label class=\"input\">" \
+    "<span>Countdown Year</span>" \
+    "<input type=\"text\" name=\"countdown_year\">" \
+    "</label>" \
+    "<label class=\"input\">" \
+    "<span>Countdown Month</span>" \
+    "<input type=\"text\" name=\"countdown_month\">" \
+    "</label>" \
+    "<label class=\"input\">" \
+    "<span>Countdown Day</span>" \
+    "<input type=\"text\" name=\"countdown_day\">" \
+    "</label>" \
     "<input class=\"btn\" type=\"submit\" name=\"submit\" value=\"Submit\">" \
     "<p><span> Nearby wifi:</span></p>" \
     "</form>" \
@@ -75,8 +87,23 @@ void handleConfigWifi()
         webServer.send(200, "text/html", "<meta charset='UTF-8'>error, not found password");
         return;
     }
-    webServer.send(200, "text/html", "<meta charset='UTF-8'>SSID：" + wifi_ssid + "<br />password:" + wifi_pswd + "<br />已取得WiFi信息,正在尝试连接,请手动关闭此页面。"); //返回保存成功页面
-    delay(2000);
+    if (webServer.hasArg("countdown_year"))
+    {
+        countdown_year = webServer.arg("countdown_year").toInt();
+        EEPROM.put(3000, countdown_year);
+    }
+    if (webServer.hasArg("countdown_month"))
+    {
+        countdown_month = webServer.arg("countdown_month").toInt();
+        EEPROM.put(3000 + sizeof(int), countdown_month);
+    }
+    if (webServer.hasArg("countdown_day"))
+    {
+        countdown_day = webServer.arg("countdown_day").toInt();
+        EEPROM.put(3000 + 2 * sizeof(int), countdown_day);
+    }
+    EEPROM.commit();
+    webServer.send(200, "text/html", "<meta charset='UTF-8'>SSID：" + wifi_ssid + "<br />password:" + wifi_pswd + "<br />Countdown Year: " + String(countdown_year) + "<br />Countdown Month: " + String(countdown_month) + "<br />Countdown Day: " + String(countdown_day) + "<br />已取得WiFi信息和倒计时日期，正在尝试连接，请手动关闭此页面。");
     webServer.close();                  //关闭web服务
     WiFi.softAPdisconnect();         //在不输入参数的情况下调用该函数,将关闭接入点模式,并将当前配置的AP热点网络名和密码设置为空值.
     Serial.println("Got Wifi ssid: ");

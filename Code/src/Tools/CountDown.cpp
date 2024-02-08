@@ -5,9 +5,9 @@
 #include "CountDown.h"
 
 int CountDown(){
-    target_date.tm_year = 2025-1900;  //count from 1900
-    target_date.tm_mon = 6;
-    target_date.tm_mday = 7;
+    target_date.tm_year = countdown_year - 1900;  //count from 1900
+    target_date.tm_mon = countdown_month - 1;  // tm_mon is 0-11
+    target_date.tm_mday = countdown_day;
 
     time_t current_time = time(nullptr);
     // 转换为tm结构体以便操作

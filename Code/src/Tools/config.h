@@ -7,6 +7,7 @@
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
 #include <time.h>
+#include <EEPROM.h>
 #include "Weather/WeatherNow.h"
 #include "Weather/HttpsGetUtils.h"
 #define PIN_LIGHT 5 //定义WS2812模块 GPIO
@@ -41,5 +42,8 @@ extern int weatherRetryTime;
 extern tm target_date;
 extern int buttonState_c;
 extern int buttonState_e;
+extern int countdown_year;
+extern int countdown_month;
+extern int countdown_day;
 
 #endif //CODE_CONFIG_H
