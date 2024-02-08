@@ -162,7 +162,10 @@ void Timer(){
                 drawNumber(22,1,0,255,0,0,Brightness);
                 drawNumber(26,1,0,255,0,0,Brightness);
                 matrix.show();
-                delay(1500);
+                delay(1000);
+                matrix.fillScreen(matrix.Color(0,0,0));
+                matrix.show();
+                delay(1000);
             }
         }
     }
