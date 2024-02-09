@@ -77,7 +77,7 @@ void ShowMenu(){
             }
         }
 
-        if (BlinkerButtonState_confirm == "press"){
+        if (BlinkerButtonState_confirm == "press" || buttonState_c == 0){
             restoreWifi();
         }
 
