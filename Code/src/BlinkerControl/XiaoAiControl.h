@@ -98,7 +98,7 @@ void miotMode(uint8_t setMode)
         now_state = "weather";
     }
     else if (setMode == BLINKER_CMD_MIOT_WARMTH) {
-        now_state = "snakegame";
+        now_state = "snake";
     }
     else if (setMode == BLINKER_CMD_MIOT_TV) {
         now_state = "gif";
@@ -124,7 +124,9 @@ void heartbeat(){
     else if (now_state == "timer") TextMode.print("当前模式: 计时");
     else if (now_state == "countdown") TextMode.print("当前模式: 倒计时");
     else if (now_state == "weather") TextMode.print("当前模式: 天气");
-    else if (now_state == "snakegame") TextMode.print("当前模式: 贪吃蛇");
+    else if (now_state == "game") TextMode.print("当前模式: 游戏页面");
+    else if (now_state == "snake") TextMode.print("当前模式: 贪吃蛇");
+    else if (now_state == "guessnum") TextMode.print("当前模式: 猜数字");
     else if (now_state == "gif") TextMode.print("当前模式: GIF");
     else if (now_state == "set") TextMode.print("当前模式: 设置");
 }

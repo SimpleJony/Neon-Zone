@@ -29,6 +29,8 @@ void drawAP();
 void drawX();
 void drawCountDown();
 void drawLight();
+void drawSnake();
+void drawNum();
 void drawProgressBar();
 void adjustBrightness();
 

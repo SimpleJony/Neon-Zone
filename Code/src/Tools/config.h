@@ -25,6 +25,7 @@ extern String BlinkerButtonState_exit;
 extern String now_state;
 extern int menu_index;
 extern int info_index;
+extern int game_index;
 
 extern String wifi_ssid;
 extern String wifi_pswd;
@@ -45,5 +46,7 @@ extern int buttonState_e;
 extern int countdown_year;
 extern int countdown_month;
 extern int countdown_day;
-
+extern int inputNum_b;
+extern int inputNum_s;
+extern int inputNum_g;
 #endif //CODE_CONFIG_H

@@ -2,8 +2,8 @@
 // Created by jonyl on 2023/8/18.
 //
 
-#ifndef CODE_GAME_H
-#define CODE_GAME_H
+#ifndef CODE_SNAKE_H
+#define CODE_SNAKE_H
 #include <Arduino.h>
 #include <Adafruit_NeoMatrix.h>
 #include "Tools/config.h"
@@ -30,4 +30,4 @@ struct Food {
 
 void resetGame(Snake snake[], Food &food, int &snake_length, int &snake_speed, int &snake_x, int &snake_y, int &snake_r, int &snake_g, int &snake_b, String &direction);
 void snakeGame();
-#endif //CODE_GAME_H
+#endif //CODE_SNAKE_H

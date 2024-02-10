@@ -1,7 +1,7 @@
 //
 // Created by jonyl on 2023/9/10.
 //
-#include "Game.h"
+#include "Snake.h"
 
 void resetGame(Snake* snake, Food &food, int &snake_length, int &snake_speed, int &snake_x, int &snake_y, int &snake_r, int &snake_g, int &snake_b, String &direction) {
     joystick_x = 0;
@@ -75,7 +75,7 @@ void snakeGame() {
         snake[i].g = snake_g;
         snake[i].b = snake_b;
     }
-    while (now_state == "snakegame") {
+    while (now_state == "snake") {
         buttonState_c = digitalRead(14);
         buttonState_e = digitalRead(34);
         if (BlinkerButtonState_exit == "tap" || buttonState_e == 0){

@@ -631,6 +631,74 @@ void drawLight(){
     matrix.show();
 }
 
+void drawSnake(){
+    for (int i=3;i<=6;i++){
+        matrix.drawPixel(i,2,matrix.Color(135,206,250));
+        matrix.drawPixel(i,4,matrix.Color(135,206,250));
+        matrix.drawPixel(i,6,matrix.Color(135,206,250));
+    }
+    matrix.drawPixel(3,3,matrix.Color(135,206,250));
+    matrix.drawPixel(6,5,matrix.Color(135,206,250));
+    for (int i=3;i<=6;i++){
+        matrix.drawPixel(8,i,matrix.Color(135,206,250));
+        matrix.drawPixel(11,i,matrix.Color(135,206,250));
+    }
+    matrix.drawPixel(9,2,matrix.Color(135,206,250));
+    matrix.drawPixel(10,2,matrix.Color(135,206,250));
+    for (int i=4;i<=6;i++){
+        matrix.drawPixel(13,i,matrix.Color(135,206,250));
+        matrix.drawPixel(17,i,matrix.Color(135,206,250));
+    }
+    matrix.drawPixel(15,2,matrix.Color(135,206,250));
+    matrix.drawPixel(14,3,matrix.Color(135,206,250));
+    matrix.drawPixel(16,3,matrix.Color(135,206,250));
+    matrix.drawPixel(14,5,matrix.Color(135,206,250));
+    matrix.drawPixel(15,5,matrix.Color(135,206,250));
+    matrix.drawPixel(16,5,matrix.Color(135,206,250));
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(19,i,matrix.Color(135,206,250));
+    }
+    matrix.drawPixel(20,4,matrix.Color(135,206,250));
+    matrix.drawPixel(21,4,matrix.Color(135,206,250));
+    matrix.drawPixel(21,3,matrix.Color(135,206,250));
+    matrix.drawPixel(21,5,matrix.Color(135,206,250));
+    matrix.drawPixel(22,2,matrix.Color(135,206,250));
+    matrix.drawPixel(22,6,matrix.Color(135,206,250));
+    for (int i=24;i<=26;i++){
+        matrix.drawPixel(i,2,matrix.Color(135,206,250));
+        matrix.drawPixel(i,4,matrix.Color(135,206,250));
+        matrix.drawPixel(i,6,matrix.Color(135,206,250));
+    }
+    matrix.drawPixel(24,3,matrix.Color(135,206,250));
+    matrix.drawPixel(24,5,matrix.Color(135,206,250));
+    matrix.show();
+}
+
+void drawNum(){
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(7,i,matrix.Color(255,182,193));
+        matrix.drawPixel(12,i,matrix.Color(255,182,193));
+    }
+    matrix.drawPixel(8,2,matrix.Color(255,182,193));
+    matrix.drawPixel(9,3,matrix.Color(255,182,193));
+    matrix.drawPixel(9,4,matrix.Color(255,182,193));
+    matrix.drawPixel(10,5,matrix.Color(255,182,193));
+    matrix.drawPixel(11,6,matrix.Color(255,182,193));
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(14,i,matrix.Color(255,182,193));
+        matrix.drawPixel(16,i,matrix.Color(255,182,193));
+    }
+    matrix.drawPixel(15,6,matrix.Color(255,182,193));
+    for (int i=2;i<=6;i++){
+        matrix.drawPixel(18,i,matrix.Color(255,182,193));
+        matrix.drawPixel(20,i,matrix.Color(255,182,193));
+        matrix.drawPixel(22,i,matrix.Color(255,182,193));
+    }
+    matrix.drawPixel(19,2,matrix.Color(255,182,193));
+    matrix.drawPixel(21,2,matrix.Color(255,182,193));
+    matrix.show();
+}
+
 void drawProgressBar(){
     matrix.clear();
     int progressBarLength = map(Brightness, 0, 255, 0, SCREEN_WIDTH);

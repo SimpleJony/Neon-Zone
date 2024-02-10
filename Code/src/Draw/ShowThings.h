@@ -12,7 +12,7 @@
 #include "DrawThings.h"
 #include "Tools/config.h"
 #include "DrawAnimation.h"
-#include "Game/Game.h"
+#include "Game/Snake.h"
 #include "ShowMenu.h"
 #include "Tools/CountDown.h"
 
