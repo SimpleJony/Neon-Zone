@@ -18,7 +18,6 @@ void resetGame(Snake* snake, Food &food, int &snake_length, int &snake_speed, in
 
     matrix.begin();
     matrix.setTextWrap(false);
-    matrix.setBrightness(50);
     matrix.fillScreen(matrix.Color(0, 0, 0));
     matrix.show();
 
@@ -57,7 +56,6 @@ void snakeGame() {
 
     matrix.begin();
     matrix.setTextWrap(false);
-    matrix.setBrightness(50);
     matrix.fillScreen(matrix.Color(0, 0, 0));
     matrix.show();
 
