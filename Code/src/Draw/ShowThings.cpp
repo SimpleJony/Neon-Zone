@@ -114,7 +114,7 @@ void showCountDown(){
 }
 
 void showLight(){
-    bool light_state = 0;
+    byte light_state = 0;
     matrix.clear();
     delay(500);
     while (now_state == "light"){
@@ -126,19 +126,17 @@ void showLight(){
             now_state = "menu";
             ShowMenu();
         }
-        if ((BlinkerButtonState_confirm == "tap" || buttonState_c == 0) && light_state==0){
-            light_state = 1;
+        if (BlinkerButtonState_confirm == "tap" || buttonState_c == 0){
+            BlinkerButtonState_confirm = "null";
+            light_state = !light_state;
         }
-        if ((BlinkerButtonState_confirm == "tap" || buttonState_c == 0) && light_state==1){
-            light_state = 0;
-        }
-    
+
         if (light_state == 0){
             matrix.clear();
             matrix.fillScreen(matrix.Color(255,255,255));
             matrix.show();
         }
-        else if (light_state == 1){
+        if (light_state == 1){
             matrix.clear();
             matrix.fillScreen(matrix.Color(255,185,105));
             matrix.show();
