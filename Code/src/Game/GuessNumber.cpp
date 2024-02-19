@@ -10,8 +10,6 @@ void GuessNumber(){
     int num_index = 1;
     int randomNum = random(1,1000);
     int retryTime = 0;
-    // debug
-    Serial.println(randomNum);
     while (now_state == "guessnum") {
         buttonState_c = digitalRead(14);
         buttonState_e = digitalRead(34);
@@ -80,10 +78,15 @@ void GuessNumber(){
                 matrix.clear();
             }
         }
-        if (retryTime == 5){
+        if (retryTime == 10){
             matrix.clear();
             drawX();
-            delay(1000);
+            delay(2000);
+            matrix.clear();
+            drawNumber(9,2,randomNum / 100,255,255,255,Brightness);
+            drawNumber(14,2,(randomNum % 100) / 10,255,255,255,Brightness);
+            drawNumber(19,2,randomNum % 10,255,255,255,Brightness);
+            delay(2000);
             matrix.clear();
             resetNum(num_index,retryTime,randomNum,inputNum_b,inputNum_s,inputNum_g);
         }
